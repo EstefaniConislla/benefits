@@ -1,0 +1,62 @@
+<app-breadcrumb></app-breadcrumb>
+<div class="container-benefits">
+  <app-categories (dataSended)="filterBenefits($event)"
+    *ngIf="!isSizeMobile || showFilterMobile"
+    (filterClose)="getStatusModalFilter($event)"
+  ></app-categories>
+  <div class="container-filter-cards">
+    <div class="container-search-order">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          maxlength="70"
+          type="text"
+          [(ngModel)]="searchTerm"
+          placeholder="Buscar beneficios"
+          (input)="onSearch()"
+        />
+      </div>
+      <div *ngIf="!isSizeMobile">
+        <select [(ngModel)]="selectedSortOption">
+          <option value="order">Ordenar por</option>
+          <option value="relevance">Los más nuevos</option>
+          <option value="name">Los más solicitados</option>
+          <option value="qualification">Los mejor evaluados</option>
+        </select>
+      </div>
+      <div *ngIf="isSizeMobile">
+        <button class="filter-button copec-rg-16" (click)="showModalFilter()">
+          Filtrar
+        </button>
+        <button class="copec-rg-16">Ordenar por</button>
+      </div>
+    </div>
+    <div *ngIf="benefits">
+      <div *ngIf="benefits.length > 0; else noResults">
+        <div class="pb-3 container-cards">
+          <app-card-benefit (click)="goToBenefit()"
+            *ngFor="let card of paginatedCards"
+            [image]="card.imagen"
+            [isCopec]="card.isCopec"
+            [isNewBenefit]="card.isNewBenefit"
+            [title]="card.title"
+            [description]="card.description"
+            [textLabel]="card.textLabel"
+          ></app-card-benefit>
+        </div>
+        <div>
+          <app-paginator
+            [currentPage]="currentPage"
+            [totalPages]="totalPages"
+            (pageChange)="onPageChange($event)"
+          ></app-paginator>
+        </div>
+      </div>
+      <ng-template #noResults>
+        <div class="noFound d-flex align-items-center">
+          <img class="fa-regular" src="/assets/img/no_results.svg" />
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

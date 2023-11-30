@@ -1,0 +1,66 @@
+@import "src/scss/_variables.scss";
+
+.container-card {
+  position: relative;
+  height: auto;
+  background: $copec-lightgray-2;
+}
+
+.label-header-container {
+  padding: 1em;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.fa-bookmark {
+  color: $copec-white;
+  font-size: 25px;
+  background: $copec-light-gray;
+}
+
+.container-label-copec {
+  background: $copec-white;
+}
+
+.label-footer-container {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  span {
+    background: $copec-white;
+    padding: 2px 8px;
+    margin-left: 1em;
+    border: 1px solid $copec-dark-blue-3;
+    border-radius: 20px;
+    color: $copec-dark-blue-3;
+  }
+}
+
+.benefit-description {
+  color: $copec-dark-gray;
+}
+
+.container-description {
+  gap: 10px;
+}
+
+.fa-star {
+  color: $copec-yellow;
+  font-size: 12px;
+}
+
+.container-flexend {
+  display: flex;
+  justify-content: flex-end !important;
+}
+
+.container-image {
+  height: 200px;
+  background-color: $copec-dark-gray;
+  overflow: hidden;
+}
+
+.benefit-imagen {
+  width: 100%;
+}

@@ -1,0 +1,167 @@
+@import "src/scss/_variables.scss";
+
+* {
+  margin: 0;
+}
+
+.benefit-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 460px;
+  padding: 0;
+}
+
+.left {
+  background-color: $copec-lightgray-2;
+  width: 60%;
+  height: 460px;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 516px;
+  height: 100%;
+  margin-left: 32px;
+}
+
+.second-image {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 44vw;
+}
+
+.evaluate-container {
+  width: 100%;
+  height: 140px;
+  padding: 24px 13px 24px 13px;
+  border-bottom: solid 1px $copec-lightgray;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.container-box {
+  width: 256.4px;
+  height: 92px;
+  gap: 8px;
+  border-right: solid 1px $copec-lightgray;
+}
+
+.container-lastbox {
+  width: 256.4px;
+  height: 92px;
+  gap: 8px;
+}
+
+.fa-star {
+  color: $copec-yellow;
+  font-size: 20px;
+  margin-right: 2.5px;
+}
+
+.first-image {
+  display: none;
+}
+
+.arrow {
+  margin-left: 6px;
+}
+
+.button-benefit {
+  width: 217px;
+  height: 56px;
+  padding: 15px 24px 15px 24px;
+  gap: 4px;
+  border: 0;
+  background-color: $copec-second-dark-blue;
+  color: $copec-white;
+  outline: none;
+}
+
+@media screen and (max-width: 1025px) {
+  .text-box {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .benefit-container {
+    height: auto;
+    display: block;
+    width: 100%;
+  }
+  .left {
+    width: 100%;
+    height: 360px;
+  }
+  .rigth {
+    display: none;
+  }
+  .text-box {
+    height: auto;
+    width: auto;
+    margin-right: 32px;
+    padding: 24px 0px 56px 0px;
+  }
+  .first-image {
+    display: block;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.benefit-container-fixed {
+  width: 100%;
+  height: 144px;
+  top: 64px;
+  padding: 24px 64px 24px 64px;
+  gap: 24px;
+  background-color: $copec-black;
+  display: flex;
+  align-items: center;
+}
+
+.text-box-fixed {
+  height: 96px;
+  gap: 8px;
+  color: $copec-white;
+  margin: 0 30px 0 30px;
+}
+
+.third-image {
+  height: 96px;
+  gap: 10px;
+}
+
+.fixed {
+  width: 100%;
+  transition: 0.2s linear;
+  top: 0px;
+  position: sticky;
+}
+
+.content-button {
+  display: flex;
+  align-items: center;
+  width: 217px;
+}
+
+.text {
+  margin-top: 5px;
+}

@@ -1,0 +1,61 @@
+@import "mixins";
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&display=swap");
+
+// Regular font
+.copec-rg-12 {
+  @include copec-regular(12px);
+}
+
+.copec-rg-14 {
+  @include copec-regular(14px);
+}
+
+.copec-rg-16 {
+  @include copec-regular(16px);
+}
+
+.copec-rg-18 {
+  @include copec-regular(18px);
+}
+
+.copec-rg-20 {
+  @include copec-regular(20px);
+}
+
+.copec-rg-40 {
+  @include copec-regular(40px);
+}
+
+// Bold font
+.copec-bold-14 {
+  @include copec-bold(14px);
+}
+
+.copec-bold-16 {
+  @include copec-bold(16px);
+}
+
+.copec-bold-20 {
+  @include copec-bold(20px);
+}
+
+.copec-bold-40 {
+  @include copec-bold(40px);
+}
+
+.copec-bold-30 {
+  @include copec-bold(32px);
+}
+
+// Light font
+.copec-lg-12 {
+  @include copec-light(12px);
+}
+
+.copec-lg-14 {
+  @include copec-light(14px);
+}
+
+.copec-lg-16 {
+  @include copec-light(16px);
+}

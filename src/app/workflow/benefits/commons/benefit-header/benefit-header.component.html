@@ -1,0 +1,91 @@
+<!-- <div class="benefit-container">
+  <div class="left">
+    <div class="text-box">
+      <h2 class="copec-bold-30">Bono por trabajo en Feriado Especial</h2>
+      <p class="copec-rg-16">
+        El Trabajador que por petición previa del Jefe respectivo, no pueda
+        celebrar con su familia festividades importantes tendrá derecho a bonos
+        que van desde los $26.000
+      </p>
+      <button class="button-benefit">Obtener el beneficio<img class="arrow" src="/assets/icono/icon-arrow.svg" /></button>
+    </div>
+    <img class="first-image" src="/assets/img/single-benefit.svg" />
+  </div>
+  <div class="rigth">
+    <img class="second-image" src="/assets/img/single-benefit.svg" />
+  </div>
+</div> -->
+
+  <div class="benefit-container" *ngIf="mira" (scroll)="onscroll()">
+    <div class="left">
+      <div class="text-box">
+        <h2 class="copec-bold-30">Brincus</h2>
+        <p class="copec-rg-16">
+          Plataforma educativa donde podrás acceder a materias de cada curso, con
+        profesores disponibles 24/7.
+        </p>
+        <button class="button-benefit">Obtener el beneficio<img class="arrow" src="/assets/icono/icon-arrow.svg" /></button>
+      </div>
+      <img class="first-image" src="/assets/img/image-benefitLink.svg" />
+    </div>
+    <div class="rigth">
+      <img class="second-image" src="/assets/img/image-benefitLink.svg" />
+    </div>
+  </div>
+
+  <div class="benefit-container-fixed fixed" *ngIf="!mira">
+    <img class="third-image" src="/assets/img/image-link.svg" />
+    <div class="text-box-fixed">
+      <h2 class="copec-bold-30">Brincus</h2>
+      <p class="copec-rg-16 text">
+        Plataforma educativa donde podrás acceder a materias de cada curso, con
+        profesores disponibles 24/7.
+      </p>
+    </div>
+    <button class="button-benefit">
+      <div class="content-button">
+        Obtener el beneficio<img
+          class="arrow"
+          src="/assets/icono/icon-arrow.svg"
+        />
+      </div>
+    </button>
+  </div>
+
+
+<div class="evaluate-container">
+  <div class="row">
+    <div class="col-sm container-box">
+      <div class="box">Categoria</div>
+      <div class="icon">
+        <img src="/assets/icono/icon-smile.svg" />
+      </div>
+      <span class="icon">Bienestar laboral</span>
+    </div>
+    <div class="col-sm container-box">
+      <div class="box">Disponible desde</div>
+      <div class="icon">
+        <img src="/assets/icono/icon-planes.svg" />
+      </div>
+      <span class="icon">Beneficios Base</span>
+    </div>
+    <div class="col-sm container-box">
+      <div class="box">Antigüedad</div>
+      <span class="icon copec-bold-20">3</span>
+      <span class="icon">Meses mínimo</span>
+    </div>
+    <div class="col-sm container-box">
+      <div class="box">Dirigido a</div>
+      <span class="icon copec-bold-20">Todos</span>
+      <span class="icon">Multiuso</span>
+    </div>
+    <div class="col-sm container-lastbox">
+      <div class="box">Valoración</div>
+      <div class="icon">
+        <i class="fa-solid fa-star"></i>
+        <span><b>4</b>/5</span>
+      </div>
+      <span class="icon">200 valoraciones</span>
+    </div>
+  </div>
+</div>

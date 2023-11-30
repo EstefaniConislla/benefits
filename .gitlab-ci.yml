@@ -1,0 +1,4 @@
+include:
+  - project: "prd/shared/cicd-templates"
+    ref: production
+    file: "common/frontend/angular-serverless-no-domain-v1.yml"

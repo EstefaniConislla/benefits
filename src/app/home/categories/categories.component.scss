@@ -1,0 +1,76 @@
+@import "src/scss/_variables.scss";
+
+section {
+  background: $copec-lightgray-2;
+  height: auto;
+}
+
+.border-bottom {
+  padding: 1em 1.5em;
+  border-bottom: 1px solid $copec-lightgray-3;
+}
+
+.filter-active {
+  background: $copec-lightgray;
+}
+
+.spacing-filters {
+  padding: 0.5em 1em;
+}
+
+mat-expansion-panel-header,
+mat-expansion-panel {
+  background: $copec-lightgray-2 !important;
+}
+
+.mat-expansion-panel-body {
+  padding: 0;
+}
+
+.tab {
+  padding: 0.7rem;
+}
+
+.tab:hover {
+  background-color: $copec-navy-blue;
+  border-left: 2px solid $copec-second-dark-blue;
+  transition: background-color 0.5s;
+}
+
+.container-apply-button {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: $copec-white;
+  color: $copec-white;
+  padding: 20px;
+  text-align: center;
+}
+
+.apply-button {
+  background-color: $copec-second-dark-blue;
+  color: $copec-white;
+  padding: 20px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    background-color: $copec-lightgray-2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1;
+    height: calc(100vh - 100px);
+  }
+
+  mat-accordion {
+    width: 100%;
+  }
+}

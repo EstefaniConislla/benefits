@@ -1,0 +1,94 @@
+@import "src/scss/_variables.scss";
+
+input,
+mat-form-field {
+  width: 100%;
+}
+.container-cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items: center;
+}
+.container-benefits {
+  display: grid !important;
+  grid-template-columns: 25% 75%;
+  margin: 0em 1em;
+}
+
+.container-filter-cards {
+  margin-left: 1em;
+}
+
+.gap-25 {
+  gap: 25px;
+}
+
+.container-search-order {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  margin-bottom: 1em;
+  input {
+    height: 56px;
+    outline: none;
+    border: none;
+    background: $copec-lightgray-2;
+  }
+  button {
+    margin-top: 1em;
+    padding: 1em;
+    width: 50%;
+    border: none;
+    border: 1px solid $copec-lightgray;
+    border-right: none;
+    background: $copec-white;
+    color: $copec-second-dark-blue;
+  }
+  .filter-button {
+    border-left: none;
+  }
+}
+
+.noFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 250px;
+}
+
+select {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  background: $copec-lightgray-2;
+  border-left: 1px solid $copec-lightgray-3;
+  padding: 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: $copec-lightgray-2;
+  padding: 0em 1em;
+  gap: 10px;
+  i {
+    color: $copec-dark-gray;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container-search-order,
+  .container-benefits {
+    grid-template-columns: 100%;
+  }
+
+  .container-filter-cards {
+    margin: 0;
+  }
+}
+
+app-card-benefit{
+  cursor: pointer;
+}

@@ -1,0 +1,93 @@
+<section>
+  <div
+    *ngIf="!isSizeMobile"
+    class="d-flex flex-column justify-content-start border-bottom"
+  >
+    <span class="copec-bold-20">Todos los beneficios</span>
+    <span class="copec-lg-14">120 resultados</span>
+  </div>
+  <div
+    *ngIf="isSizeMobile"
+    class="d-flex justify-content-between align-items-center border-bottom"
+  >
+    <span class="copec-bold-20">Filtrar</span>
+    <div class="copec-rg-16 color-second-dark-blue">
+      <span>Quitar todos</span>
+      <span class="ms-4" (click)="closeFilter()">x</span>
+    </div>
+  </div>
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="isExpanded">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="copec-bold-16">Categorias</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div
+        class="tab d-flex align-items-center"
+        *ngFor="let category of categories"
+        (click)="filterBenefitsByCategory(category)"
+      >
+        <img class="fa-regular" src="{{ category.icon }}" />
+        <span class="copec-lg-16 color-black ms-2">{{ category.description }}</span>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="copec-bold-16">Planes</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="d-flex align-items-center pb-3" *ngFor="let plan of plans">
+        <input
+          type="checkbox"
+          id="{{plan.id}}"
+          name="{{plan.titleplan}}"
+          value="{{plan.id}}"
+          (change)="filterBenefitsByPlan($event)"
+        />
+        <label for="plan.name" class="ms-2">{{ plan.titleplan }}</label>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="copec-bold-16"
+          >Antigüedad requerida</mat-panel-title
+        >
+      </mat-expansion-panel-header>
+      <div class="d-flex align-items-center pb-3" *ngFor="let antiquity of antiquies">
+        <input
+          type="checkbox"
+          id="{{antiquity.id}}"
+          name="{{antiquity.description}}"
+          value="{{antiquity.id}}"
+          (change)="filterBenefitsByAntiquity($event)"
+        />
+        <label for="antiquity.description" class="ms-2">{{ antiquity.description }}</label>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="copec-bold-16">Beneficiarios</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div
+        class="d-flex align-items-center pb-3"
+        *ngFor="let beneficiaryType of beneficiaryTypes"
+      >
+        <input
+          type="checkbox"
+          id="{{beneficiaryType.id}}"
+          name="{{beneficiaryType.description}}"
+          value="{{beneficiaryType.id}}"
+          (change)="filterBenefitsByBeneficiaryTypes($event)"
+        />
+        <label for="beneficiaryType.description" class="ms-2">{{ beneficiaryType.description }}</label>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div *ngIf="isSizeMobile" class="container-apply-button">
+    <button class="apply-button copec-rg-16">Aplicar</button>
+  </div>
+</section>

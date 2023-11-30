@@ -1,0 +1,124 @@
+---
+service: benflex-web
+frameworkVersion: "3"
+
+plugins:
+  - fullstack-serverless
+  - serverless-deployment-bucket
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: ${opt:stage, 'dev'}
+  region: us-west-2
+  deploymentBucket:
+    name: copec-${self:service}-${self:provider.region}-${self:provider.stage}-serverless-deploy-bucket
+    serverSideEncryption: AES256
+    blockPublicAccess: true
+  versionFunctions: false
+  endpointType: REGIONAL
+
+custom:
+  fullstack:
+    bucketName: ${self:provider.region}-artifacts-storage-bucket
+    distributionFolder: dist
+    indexDocument: index.html
+    errorDocument: index.html
+    cacheBehaviors:
+      - PathPattern: "*.js"
+        Compress: true
+        TargetOriginId: "WebApp"
+        ViewerProtocolPolicy: "redirect-to-https"
+        DefaultTTL: 86400
+        MaxTTL: 86400
+        MinTTL: 86400
+        ForwardedValues:
+          QueryString: false
+          Cookies:
+            Forward: "none"
+        AllowedMethods:
+          - GET
+          - HEAD
+          - OPTIONS
+        CachedMethods:
+          - GET
+          - HEAD
+          - OPTIONS
+        ResponseHeadersPolicyId: !Ref COPECSecurityHeadersPolicy
+      - PathPattern: "*.css"
+        Compress: true
+        TargetOriginId: "WebApp"
+        ViewerProtocolPolicy: "redirect-to-https"
+        DefaultTTL: 86400
+        MaxTTL: 86400
+        MinTTL: 86400
+        ForwardedValues:
+          QueryString: false
+          Cookies:
+            Forward: "none"
+        AllowedMethods:
+          - GET
+          - HEAD
+          - OPTIONS
+        CachedMethods:
+          - GET
+          - HEAD
+          - OPTIONS
+        ResponseHeadersPolicyId: !Ref COPECSecurityHeadersPolicy
+      - PathPattern: "assets/*"
+        Compress: true
+        TargetOriginId: "WebApp"
+        ViewerProtocolPolicy: "redirect-to-https"
+        DefaultTTL: 86400
+        MaxTTL: 86400
+        MinTTL: 86400
+        ForwardedValues:
+          QueryString: false
+          Cookies:
+            Forward: "none"
+        AllowedMethods:
+          - GET
+          - HEAD
+          - OPTIONS
+        CachedMethods:
+          - GET
+          - HEAD
+          - OPTIONS
+        ResponseHeadersPolicyId: !Ref COPECSecurityHeadersPolicy
+      - PathPattern: "*"
+        Compress: true
+        TargetOriginId: "WebApp"
+        ViewerProtocolPolicy: "redirect-to-https"
+        ForwardedValues:
+          QueryString: false
+          Cookies:
+            Forward: "none"
+        AllowedMethods:
+          - GET
+          - HEAD
+          - OPTIONS
+        ResponseHeadersPolicyId: !Ref COPECSecurityHeadersPolicy
+    singlePageApp: true
+    noConfirm: true
+
+resources:
+  Resources:
+    COPECSecurityHeadersPolicy:
+      Type: AWS::CloudFront::ResponseHeadersPolicy
+      Properties:
+        ResponseHeadersPolicyConfig:
+          Name: "COPECSecurityHeadersPolicy-${self:provider.stage}"
+          Comment: "Politicas Recomendadas por Seguridad TI COPEC"
+          SecurityHeadersConfig:
+            StrictTransportSecurity:
+              AccessControlMaxAgeSec: 31536000
+              Override: true
+            ContentTypeOptions:
+              Override: true
+            FrameOptions:
+              FrameOption: SAMEORIGIN
+              Override: true
+            XSSProtection:
+              ModeBlock: true
+              Override: true
+              Protection: true
