@@ -1,0 +1,35 @@
+@import "src/scss/_variables.scss";
+
+.container-paginator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: $copec-lightgray-2;
+}
+
+.label-paginator {
+  background: $copec-lightgray-2;
+  padding: 1em;
+  border-right: 1px solid $copec-lightgray-3;
+}
+
+button {
+  width: 54px;
+  height: 56px;
+  width: 54px;
+  height: 56px;
+  color: $copec-second-dark-blue;
+  border: none;
+  background: $copec-lightgray-2;
+}
+
+.selected {
+  background: $copec-lightgray;
+}
+
+@media screen and (max-width: 768px) {
+  .label-paginator {
+    border: none;
+  }
+}

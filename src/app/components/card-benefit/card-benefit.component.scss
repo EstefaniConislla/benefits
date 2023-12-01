@@ -1,0 +1,128 @@
+@import "src/scss/_variables.scss";
+
+.container-card {
+  position: relative;
+  height: auto;
+  background: $copec-lightgray-2;
+}
+
+.label-header-container {
+  padding: 1em;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.fa-bookmark {
+  color: $copec-white;
+  font-size: 25px;
+  background: $copec-light-gray;
+}
+
+.container-label-copec {
+  background: $copec-white;
+}
+
+.label-footer-container {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+
+  span {
+    background: $copec-white;
+    padding: 2px 8px;
+    margin-left: 1em;
+    border: 1px solid $copec-dark-blue-3;
+    border-radius: 20px;
+    color: $copec-dark-blue-3;
+  }
+}
+
+.benefit-title {
+  height: 50px;
+}
+
+.benefit-description {
+  color: $copec-dark-gray;
+  height: 60px;
+}
+
+.container-description {
+  gap: 10px;
+}
+
+.fa-star {
+  color: $copec-yellow;
+  font-size: 12px;
+}
+
+.container-flexend {
+  display: flex;
+  justify-content: flex-end !important;
+}
+
+.container-image {
+  height: 200px;
+  background-color: $copec-dark-gray;
+  overflow: hidden;
+}
+
+.benefit-imagen {
+  width: 100%;
+}
+
+
+@media all and (min-width: 1300px) and (max-width: 1410px) {
+  .benefit-title {
+    height: 60px !important;
+    margin-bottom: 10px;
+  }
+
+  .benefit-description {
+    height: 80px !important;
+  }
+}
+
+
+@media all and (min-width: 850px) and (max-width: 955px) {
+  .benefit-title {
+    height: 60px !important;
+    margin-bottom: 10px;
+  }
+
+  .benefit-description {
+    height: 80px !important;
+  }
+}
+
+@media all and (min-width: 675px) and (max-width: 715px) {
+  .benefit-title {
+    height: 60px !important;
+    margin-bottom: 10px;
+  }
+
+  .benefit-description {
+    height: 80px !important;
+  }
+}
+
+@media all and (min-width: 2180px) {
+  .benefit-title {
+    height: 60px !important;
+    margin-bottom: 8px;
+  }
+
+  .benefit-description {
+    height: 80px !important;
+  }
+}
+
+@media all and (max-width: 659px) {
+  .benefit-title {
+    height: auto !important;
+  }
+
+  .benefit-description {
+    height: auto !important;
+  }
+}

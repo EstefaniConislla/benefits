@@ -1,0 +1,21 @@
+@mixin font-size($size) {
+  font-size: $size !important;
+}
+
+@mixin copec-bold($font-size) {
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  @include font-size($font-size);
+}
+
+@mixin copec-regular($font-size) {
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  @include font-size($font-size);
+}
+
+@mixin copec-light($font-size) {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  @include font-size($font-size);
+}

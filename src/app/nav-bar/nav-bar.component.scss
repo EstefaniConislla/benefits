@@ -1,0 +1,69 @@
+@import "src/scss/_variables.scss";
+header {
+  border-bottom: 1px solid $copec-lightgray;
+  padding: 1em 2em;
+  width: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: $copec-black;
+}
+
+.nav-menu-mobile {
+  display: none;
+  button {
+    color: $copec-dark-blue;
+    background: none;
+    border: none;
+    font-size: 24px;
+    width: 40px;
+    cursor: pointer;
+  }
+}
+
+.nav-menu-item {
+  margin: 0 30px;
+  width: max-content;
+  cursor: pointer;
+}
+
+.icon-user {
+  color: $copec-light-blue;
+  margin-left: 60px !important;
+  border: none;
+  background: white;
+  height: 20px;
+}
+
+// Phone
+@media screen and (max-width: 768px) {
+  header {
+    padding: 0.5em 1em;
+  }
+
+  .nav-menu-mobile {
+    display: block;
+  }
+
+  .nav-menu {
+    align-items: center;
+    flex-direction: column;
+    margin-right: 20px;
+    background-color: #f2b807;
+    position: fixed;
+    top: 90px;
+    width: 100%;
+    padding: 20px 0;
+    height: calc(100% - 90px);
+    overflow-y: auto;
+    left: 100%;
+    z-index: 0;
+  }
+}

@@ -1,0 +1,31 @@
+<header>
+  <nav class="d-flex justify-content-between">
+    <img src="/assets/img/navBar_logo.svg" />
+    <div class="nav-menu-mobile">
+      <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button><i class="fa-regular fa-bell"></i></button>
+      <button><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <ul class="nav-menu d-flex">
+      <li class="nav-menu-item">
+        <a class="copec-rg-16">Beneficios</a>
+      </li>
+      <li class="nav-menu-item">
+        <a class="copec-rg-16">Planes</a>
+      </li>
+      <li class="nav-menu-item">
+        <a class="copec-rg-16">Mis solicitudes</a>
+      </li>
+      <li class="nav-menu-item m-0">
+        <button class='icon-user' [matMenuTriggerFor]="menu" aria-label="menu">
+          <mat-icon fontIcon = "account_circle"></mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <span (click)="cerrarSesion()">Cerrar Sesión</span>
+          </button>
+        </mat-menu>
+      </li>
+    </ul>
+  </nav>
+</header>
