@@ -14,10 +14,15 @@ mat-form-field {
   display: grid !important;
   grid-template-columns: 25% 75%;
   margin: 0em 1em;
+
+  
 }
 
 .container-filter-cards {
   margin-left: 1em;
+ /*  display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
 }
 
 .gap-25 {

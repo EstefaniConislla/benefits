@@ -1,23 +1,5 @@
-<!-- <div class="benefit-container">
-  <div class="left">
-    <div class="text-box">
-      <h2 class="copec-bold-30">Bono por trabajo en Feriado Especial</h2>
-      <p class="copec-rg-16">
-        El Trabajador que por petición previa del Jefe respectivo, no pueda
-        celebrar con su familia festividades importantes tendrá derecho a bonos
-        que van desde los $26.000
-      </p>
-      <button class="button-benefit">Obtener el beneficio<img class="arrow" src="/assets/icono/icon-arrow.svg" /></button>
-    </div>
-    <img class="first-image" src="/assets/img/single-benefit.svg" />
-  </div>
-  <div class="rigth">
-    <img class="second-image" src="/assets/img/single-benefit.svg" />
-  </div>
-</div> -->
-
-<div class="benefit-container" *ngIf="mira" (scroll)="onscroll()">
-  <div class="left">
+<div class="benefit-container">
+  <div class="left" [ngClass]="mira? '':'display-none'">
     <div class="text-box">
       <h2 class="copec-bold-30">Brincus</h2>
       <p class="copec-rg-16-p">
@@ -27,22 +9,17 @@
       <button class="button-benefit">Obtener el beneficio<img class="arrow"
           src="/assets/icono/icon-arrow.svg" /></button>
     </div>
-    <!--   <img class="first-image" src="/assets/img/image-benefitLink.svg" /> -->
+   
   </div>
-  <div class="rigth">
-    <div class="second-image">
-      <div class="logo">
-        <img src="/assets/img/copec-label.svg" />
-      </div>
-      <div>
-        <img src="/assets/img/image-benefitLink.svg" class="img-responsive" />
-      </div>
+  <div class="rigth" [ngClass]="mira? '':'display-none'">
+    <div class="">
+      <img class="second-image" src="/assets/img/image-benefitLink.svg" />
     </div>
   </div>
 </div>
 
 
-<div class="benefit-container-fixed fixed" *ngIf="!mira">
+<div class="benefit-container-fixed fixed" [ngClass]="!mira? '':'display-none'">
   <img class="third-image" src="/assets/img/image-link.svg" />
   <div class="text-box-fixed">
     <h2 class="copec-bold-30">Brincus</h2>
