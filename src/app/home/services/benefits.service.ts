@@ -14,9 +14,9 @@ export class BenefitsService {
         isCopec: false,
         isNewBenefit: true,
         title:
-          'Beca de Excelencia en Artes, Deportes y Ciencias, para hijos/as de trabajadores/as.',
+          'Beca de Excelencia en Artes, Deportes y Ciencias, para hijos/as de trabajadores/as. Beca de Excelencia en Artes, Deportes y Ciencias, para hijos/as de trabajadores/as.',
         description:
-          'Breve descripción orientativa de beneficios, de hasta dos lineas maximo de extension',
+          'Breve descripción orientativa de beneficios, de hasta dos lineas maximo de extension. Breve descripción orientativa de beneficios, de hasta dos lineas maximo de extension scription Breve descripción orientativa de beneficios, de hasta dos lineas maximo de extension. Breve descripción orientativa de beneficios, de hasta dos lineas maximo de extension',
         textLabel: 'Tiempo limitado',
         categories: [2],
         antiquies: [1],
@@ -31,7 +31,7 @@ export class BenefitsService {
         title:
           'Beca de Excelencia en Artes, Deportes y Ciencias, para hijos/as de trabajadores/as.',
         description:
-          'Breve descripción orientativa de beneficios, de hasta dos lineas maximo de extension',
+          'Breve descripción orientativa de beneficios, de hasta dos lineas maximo de extension Breve descripción orientativa de beneficios, de hasta dos lineas maximo de extension',
         textLabel: 'Tiempo limitado',
         categories: [2],
         antiquies: [1],
@@ -44,9 +44,9 @@ export class BenefitsService {
         isCopec: false,
         isNewBenefit: false,
         title:
-          'Beca de Excelencia en Artes, Deportes y Ciencias, para hijos/as de trabajadores/as.',
+          'Beca de Excelencia en Artes, Deportes y Ciencias, para hijos/as de trabajadores/as. Beca de Excelencia en Artes, Deportes y Ciencias, para hijos/as de trabajadores/as. Beca de Excelencia en Artes, Deportes y Ciencias, para hijos/as de trabajadores/as.',
         description:
-          'Breve descripción orientativa de beneficios, de hasta dos lineas maximo de extension',
+          'Breve descripción orientativa de beneficios, de hasta dos lineas maximo de extension extension extension extension',
         textLabel: 'Tiempo limitado',
         categories: [1],
         antiquies: [1],

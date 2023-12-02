@@ -5,15 +5,19 @@
 }
 
 .container-box {
-  width: 414.67px;
-  height: 180px;
   padding: 24px 32px 24px 32px;
   gap: 40px;
+  border-bottom: 3px solid #f5f6fa;
+  border-right: 3px solid #f5f6fa;
+}
+
+.content-footer {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .evaluate-container {
   width: 100%;
-  height: 302px;
   padding: 24px 32px 48px 32px;
   gap: 16px;
   background-color: $copec-lightgray-2;
@@ -21,7 +25,7 @@
 
 .row {
   width: 100%;
-  height: 180px;
+  /* height: 180px; */
   gap: 2px;
   background-color: $copec-white;
 }
@@ -65,7 +69,7 @@
 }
 
 .text-container {
-  width: 700px;
+  width: 100%;
   height: 786px;
   padding: 32px 32px 48px 32px;
   gap: 24px;
@@ -87,4 +91,24 @@
 .image-text {
   margin-top: 15px;
   margin-bottom: 15px;
+  width: 100%;
+}
+
+.container {
+  margin: auto;
+  height: 100%;
+}
+
+.img-res {
+  display: flex;
+  justify-content: center;
+}
+
+.img-responsive {
+  width: 100%;
+  height: 100%;
+}
+
+.container-footer {
+  height: 100%;
 }

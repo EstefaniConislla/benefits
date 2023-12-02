@@ -24,7 +24,11 @@ import { HttpClientModule } from '@angular/common/http';
     OAuthModule.forRoot({
       resourceServer: {
         allowedUrls: ['http://www.angular.at/api'],
+<<<<<<< HEAD
         sendAccessToken: true,
+=======
+        sendAccessToken: false,
+>>>>>>> a3a9d15f86cc8723f324e2e05dab4716799921df
       },
     }),
   ],

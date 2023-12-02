@@ -10,7 +10,7 @@ export class BenefitHeaderComponent {
 
   @HostListener('window:scroll', ['$event'])
   onscroll() {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 0) {
       this.mira = false;
     } else {
       this.mira = true;
