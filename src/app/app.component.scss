@@ -6,7 +6,8 @@
 
 app-nav-bar {
   position: fixed;
-  z-index: 99;
+  z-index: 9999;
   background: white;
   width: 100%;
+  top: 0;
 }

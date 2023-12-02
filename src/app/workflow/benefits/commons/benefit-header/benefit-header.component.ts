@@ -7,7 +7,6 @@ import { Component, HostListener } from '@angular/core';
 })
 export class BenefitHeaderComponent {
   mira = true;
-
   @HostListener('window:scroll', ['$event'])
   onscroll() {
     if (window.scrollY > 0) {
