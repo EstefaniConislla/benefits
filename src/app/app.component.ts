@@ -11,6 +11,6 @@ export class AppComponent {
   title = 'beneflex';
 
   getUserProfile(atributo: string) {
-    return this._idpService.getUserProfile()['info'][atributo] === undefined ? false : true;
+ /*    return this._idpService.getUserProfile()['info'][atributo] === undefined ? false : true; */
   }
 }

@@ -10,7 +10,7 @@ export class IdpService {
   private userProfile!: any;
 
   constructor(private readonly oauthService: OAuthService) {
-    this.configure();
+   /*  this.configure(); */
   }
 
   private configure() {

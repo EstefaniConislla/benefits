@@ -104,6 +104,7 @@ export class ProfileTableComponent {
     'rut',
     'typeUser',
     'status',
+    'status2',
   ];
   dataSource = ELEMENT_DATA;
 }
