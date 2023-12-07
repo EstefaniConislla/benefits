@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 interface Transaction {
   item: string;
@@ -17,4 +18,6 @@ export class BenefitBodyComponent {
     { item: '18 y/o 19 de septiembre', cost: '$ 30.000' },
     { item: '1ro de mayo', cost: '$ 26.000' },
   ];
+
+  constructor(private router: ActivatedRoute) {}
 }

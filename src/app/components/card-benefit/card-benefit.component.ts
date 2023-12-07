@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Benefits } from 'src/app/home/models/benefts.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-benefit',
@@ -6,10 +8,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-benefit.component.scss'],
 })
 export class CardBenefitComponent {
-  @Input() image!: string;
-  @Input() isCopec!: boolean;
-  @Input() isNewBenefit!: boolean;
-  @Input() title!: string;
-  @Input() description!: string;
-  @Input() textLabel!: string;
+  @Input() benefit!: Benefits;
+
+  constructor(private router: Router) {}
+
+  goToDetailBenefit() {
+    console.log(this.benefit);
+    this.router.navigate(['/benefits'], {
+      queryParams: { idBenefit: this.benefit.id },
+    });
+  }
 }

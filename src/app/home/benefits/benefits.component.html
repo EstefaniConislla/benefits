@@ -1,14 +1,14 @@
-<app-breadcrumb></app-breadcrumb>
-<div class="container-benefits">
-  <app-categories (dataSended)="filterBenefits($event)"
+<app-breadcrumb id="ben-app-1"></app-breadcrumb>
+<div id="ben-div-1" class="container-benefits">
+  <app-categories id="ben-app-2" (dataSended)="filterBenefits($event)"
     *ngIf="!isSizeMobile || showFilterMobile"
     (filterClose)="getStatusModalFilter($event)"
   ></app-categories>
-  <div class="container-filter-cards">
-    <div class="container-search-order">
-      <div class="search-bar">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input
+  <div id="ben-div-2" class="container-filter-cards">
+    <div id="ben-div-3" class="container-search-order">
+      <div id="ben-div-4" class="search-bar">
+        <i id="ben-i-1" class="fa-solid fa-magnifying-glass"></i>
+        <input id="ben-input-1"
           maxlength="70"
           type="text"
           [(ngModel)]="searchTerm"
@@ -16,45 +16,40 @@
           (input)="onSearch()"
         />
       </div>
-      <div *ngIf="!isSizeMobile">
-        <select [(ngModel)]="selectedSortOption">
-          <option value="order">Ordenar por</option>
-          <option value="relevance">Los más nuevos</option>
-          <option value="name">Los más solicitados</option>
-          <option value="qualification">Los mejor evaluados</option>
+      <div id="ben-div-5" *ngIf="!isSizeMobile">
+        <select [(ngModel)]="selectedSortOption" id="ben-select-1">
+          <option id="ben-opt-1" value="order">Ordenar por</option>
+          <option id="ben-opt-2" value="relevance">Los más nuevos</option>
+          <option id="ben-opt-3" value="name">Los más solicitados</option>
+          <option id="ben-opt-4" value="qualification">Los mejor evaluados</option>
         </select>
       </div>
-      <div *ngIf="isSizeMobile">
-        <button class="filter-button copec-rg-16" (click)="showModalFilter()">
+      <div id="ben-div-5" *ngIf="isSizeMobile">
+        <button id="ben-but-1" class="filter-button copec-rg-16" (click)="showModalFilter()">
           Filtrar
         </button>
-        <button class="copec-rg-16">Ordenar por</button>
+        <button id="ben-but-2" class="copec-rg-16">Ordenar por</button>
       </div>
     </div>
-    <div *ngIf="benefits">
-      <div *ngIf="benefits.length > 0; else noResults">
-        <div class="pb-3 container-cards">
-          <app-card-benefit (click)="goToBenefit()"
+    <div id="ben-div-6" *ngIf="benefits">
+      <div id="ben-div-7" *ngIf="benefits.length > 0; else noResults">
+        <div id="ben-div-8" class="pb-3 container-cards">
+          <app-card-benefit id="ben-app-card-{{card.id}}"
             *ngFor="let card of paginatedCards"
-            [image]="card.imagen"
-            [isCopec]="card.isCopec"
-            [isNewBenefit]="card.isNewBenefit"
-            [title]="card.title"
-            [description]="card.description"
-            [textLabel]="card.textLabel"
+            [benefit]="card"
           ></app-card-benefit>
         </div>
         <div>
-          <app-paginator
+          <app-paginator id="ben-app-4"
             [currentPage]="currentPage"
             [totalPages]="totalPages"
             (pageChange)="onPageChange($event)"
           ></app-paginator>
         </div>
       </div>
-      <ng-template #noResults>
-        <div class="noFound d-flex align-items-center">
-          <img class="fa-regular" src="/assets/img/no_results.svg" />
+      <ng-template #noResults id="ben-template-1">
+        <div id="ben-div-9" class="noFound d-flex align-items-center">
+          <img id="ben-imagen-1" class="fa-regular" src="/assets/img/no_results.svg" />
         </div>
       </ng-template>
     </div>

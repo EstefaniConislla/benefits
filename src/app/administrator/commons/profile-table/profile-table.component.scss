@@ -1,0 +1,56 @@
+@import "src/scss/_variables.scss";
+
+.container-filter-profile {
+  margin-left: 1em;
+}
+
+.container-search-profile {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  margin-bottom: 1em;
+  input {
+    height: 56px;
+    outline: none;
+    border: none;
+    background: $copec-lightgray-2;
+  }
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: $copec-lightgray-2;
+  padding: 0em 1em;
+  gap: 10px;
+  i {
+    color: $copec-dark-gray;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container-search-profile,
+  .container-administrator-profile {
+    grid-template-columns: 100%;
+  }
+
+  .container-filter-profile {
+    margin: 0;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  background: $copec-lightgray !important;
+}
+
+tr {
+  border-bottom: 4.5px solid white;
+  background: #F5F6FA !important;
+}
+
+.mat-elevation-z8 {
+  box-shadow: none !important;
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,6 +6,12 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './single-benefits.component.html',
   styleUrls: ['./single-benefits.component.scss'],
 })
-export class SingleBenefitsComponent {
-  constructor(private route: ActivatedRoute) {}
+export class SingleBenefitsComponent implements OnInit {
+  constructor(private router: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.router.queryParams.subscribe((params) => {
+      console.log(params); // { order: "popular" }
+    });
+  }
 }

@@ -1,31 +1,31 @@
-<div class="container-paginator">
-  <div class="label-paginator copec-lg-14">
-    <span *ngIf="isSizeMobile">
+<div id="pag-div-1" class="container-paginator">
+  <div id="pag-div-2" class="label-paginator copec-lg-14">
+    <span id="pag-span-1" *ngIf="isSizeMobile">
       {{ currentPage }} de {{ totalPages }}</span
     >
-    <span *ngIf="!isSizeMobile"
+    <span id="pag-span-2" *ngIf="!isSizeMobile"
       >Mostrando {{ currentPage }} de {{ totalPages }}</span
     >
   </div>
-  <div
+  <div id="pag-div-3"
     class="d-flex align-items-center justify-content-end container-button-paginator copec-rg-16"
   >
-    <button *ngIf="!isSizeMobile" (click)="firstPage()">
-      <i class="fa-solid fa-angles-left"></i>
+    <button id="pag-button-1" *ngIf="!isSizeMobile" (click)="firstPage()">
+      <i id="pag-id-1" class="fa-solid fa-angles-left"></i>
     </button>
     <button (click)="prevPage()"><i class="fa-solid fa-angle-left"></i></button>
-    <button
+    <button id="pag-button-1-{{page}}"
       *ngFor="let page of buttonPages"
       (click)="onPageChange(page)"
       [ngClass]="{ selected: currentPage === page }"
     >
       {{ page }}
     </button>
-    <button (click)="nextPage()">
+    <button id="pag-button-2" (click)="nextPage()">
       <i class="fa-solid fa-angle-right"></i>
     </button>
-    <button *ngIf="!isSizeMobile" (click)="lastPage()">
-      <i class="fa-solid fa-angles-right"></i>
+    <button id="pag-button-3" *ngIf="!isSizeMobile" (click)="lastPage()">
+      <i id="pag-id-2" class="fa-solid fa-angles-right"></i>
     </button>
   </div>
 </div>

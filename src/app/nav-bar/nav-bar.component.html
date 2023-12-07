@@ -17,12 +17,21 @@
         <a class="copec-rg-16">Mis solicitudes</a>
       </li>
       <li class="nav-menu-item m-0">
-        <button class='icon-user' [matMenuTriggerFor]="menu" aria-label="menu">
-          <mat-icon fontIcon = "account_circle"></mat-icon>
+        <button class="icon-user" [matMenuTriggerFor]="menu" aria-label="menu">
+          <mat-icon fontIcon="account_circle"></mat-icon>
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item>
+            <mat-icon>person</mat-icon>
+            <span (click)="goToAdmin()">Administrador</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>logout</mat-icon>
             <span (click)="cerrarSesion()">Cerrar Sesión</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>key</mat-icon>
+            <span>Cambiar contraseña</span>
           </button>
         </mat-menu>
       </li>

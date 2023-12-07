@@ -1,15 +1,19 @@
 export interface Benefits {
-  imagen: string;
+  id?: number;
+  idBenefit?: number;
+  title: string;
+  image: string;
+  description: string;
   isCopec: boolean;
   isNewBenefit: boolean;
-  title: string;
-  description: string;
+  longDescription: string;
+  detail: string;
   textLabel: string;
-  id?: string;
   categories: number[];
-  antiquies: number[];
+  antiques: number[];
   beneficiaryTypes: number[];
   plans: number[];
+  link: string;
 }
 
 /*

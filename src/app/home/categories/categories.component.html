@@ -1,42 +1,42 @@
-<section>
-  <div
+<section id="cat-section-1">
+  <div id="cat-div-1"
     *ngIf="!isSizeMobile"
     class="d-flex flex-column justify-content-start border-bottom"
   >
-    <span class="copec-bold-20">Todos los beneficios</span>
-    <span class="copec-lg-14">120 resultados</span>
+    <span id="cat-span-1" class="copec-bold-20">Todos los beneficios</span>
+    <span id="cat-span-2" class="copec-lg-14">120 resultados</span>
   </div>
-  <div
+  <div id="cat-div-2"
     *ngIf="isSizeMobile"
     class="d-flex justify-content-between align-items-center border-bottom"
   >
-    <span class="copec-bold-20">Filtrar</span>
-    <div class="copec-rg-16 color-second-dark-blue">
-      <span>Quitar todos</span>
-      <span class="ms-4" (click)="closeFilter()">x</span>
+    <span id="cat-span-3" class="copec-bold-20">Filtrar</span>
+    <div id="cat-div-3" class="copec-rg-16 color-second-dark-blue">
+      <span id="cat-span-4">Quitar todos</span>
+      <span id="cat-span-5" class="ms-4" (click)="closeFilter()">x</span>
     </div>
   </div>
-  <mat-accordion>
-    <mat-expansion-panel [expanded]="isExpanded">
-      <mat-expansion-panel-header>
-        <mat-panel-title class="copec-bold-16">Categorias</mat-panel-title>
+  <mat-accordion id="cat-mat-1">
+    <mat-expansion-panel id="cat-mat-2" [expanded]="isExpanded">
+      <mat-expansion-panel-header id="cat-mat-3">
+        <mat-panel-title id="cat-mat-4" class="copec-bold-16">Categorias</mat-panel-title>
       </mat-expansion-panel-header>
-      <div
+      <div id="cat-cat-div-{{ category.idcategory }}"
         class="tab d-flex align-items-center"
         *ngFor="let category of categories"
         (click)="filterBenefitsByCategory(category)"
       >
-        <img class="fa-regular" src="{{ category.icon }}" />
-        <span class="copec-lg-16 color-black ms-2">{{ category.description }}</span>
+        <img  id="cat-cat-img-1-{{ category.idcategory }}"  class="fa-regular" src="{{ category.icon }}" />
+        <span id="cat-cat-span-{{ category.idcategory }}" class="copec-lg-16 color-black ms-2">{{ category.description }}</span>
       </div>
     </mat-expansion-panel>
   </mat-accordion>
-  <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title class="copec-bold-16">Planes</mat-panel-title>
+  <mat-accordion id="cat-mat-5">
+    <mat-expansion-panel id="cat-mat-6">
+      <mat-expansion-panel-header id="cat-mat-7">
+        <mat-panel-title id="cat-mat-8" class="copec-bold-16">Planes</mat-panel-title>
       </mat-expansion-panel-header>
-      <div class="d-flex align-items-center pb-3" *ngFor="let plan of plans">
+      <div id="cat-plan-div-{{plan.id}}" class="d-flex align-items-center pb-3" *ngFor="let plan of plans">
         <input
           type="checkbox"
           id="{{plan.id}}"
@@ -44,18 +44,18 @@
           value="{{plan.id}}"
           (change)="filterBenefitsByPlan($event)"
         />
-        <label for="plan.name" class="ms-2">{{ plan.titleplan }}</label>
+        <label id="cat-plan-label-{{plan.id}}" for="plan.name" class="ms-2">{{ plan.titleplan }}</label>
       </div>
     </mat-expansion-panel>
   </mat-accordion>
-  <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title class="copec-bold-16"
+  <mat-accordion id="cat-mat-9">
+    <mat-expansion-panel id="cat-mat-10">
+      <mat-expansion-panel-header id="cat-mat-11">
+        <mat-panel-title class="copec-bold-16" id="cat-mat-12"
           >Antigüedad requerida</mat-panel-title
         >
       </mat-expansion-panel-header>
-      <div class="d-flex align-items-center pb-3" *ngFor="let antiquity of antiquies">
+      <div id="cat-antiquity-div-{{antiquity.id}}"  class="d-flex align-items-center pb-3" *ngFor="let antiquity of antiquies">
         <input
           type="checkbox"
           id="{{antiquity.id}}"
@@ -63,16 +63,16 @@
           value="{{antiquity.id}}"
           (change)="filterBenefitsByAntiquity($event)"
         />
-        <label for="antiquity.description" class="ms-2">{{ antiquity.description }}</label>
+        <label id="cat-antiquity-label-{{antiquity.id}}" for="antiquity.description" class="ms-2">{{ antiquity.description }}</label>
       </div>
     </mat-expansion-panel>
   </mat-accordion>
-  <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title class="copec-bold-16">Beneficiarios</mat-panel-title>
+  <mat-accordion id="cat-mat-13">
+    <mat-expansion-panel id="cat-mat-14">
+      <mat-expansion-panel-header id="cat-mat-15">
+        <mat-panel-title id="cat-mat-16" class="copec-bold-16">Beneficiarios</mat-panel-title>
       </mat-expansion-panel-header>
-      <div
+      <div id="cat-beneficiaryType-div-{{beneficiaryType.id}}"
         class="d-flex align-items-center pb-3"
         *ngFor="let beneficiaryType of beneficiaryTypes"
       >
@@ -83,11 +83,11 @@
           value="{{beneficiaryType.id}}"
           (change)="filterBenefitsByBeneficiaryTypes($event)"
         />
-        <label for="beneficiaryType.description" class="ms-2">{{ beneficiaryType.description }}</label>
+        <label id="cat-antiquity-label-{{beneficiaryType.id}}" for="beneficiaryType.description" class="ms-2">{{ beneficiaryType.description }}</label>
       </div>
     </mat-expansion-panel>
   </mat-accordion>
-  <div *ngIf="isSizeMobile" class="container-apply-button">
-    <button class="apply-button copec-rg-16">Aplicar</button>
+  <div id="cat-div-8" *ngIf="isSizeMobile" class="container-apply-button">
+    <button id="cat-but-apply" class="apply-button copec-rg-16">Aplicar</button>
   </div>
 </section>

@@ -1,40 +1,45 @@
 <div class="benefit-container">
-  <div class="left" [ngClass]="mira? '':'display-none'">
+  <div class="left" [ngClass]="mira ? '' : 'display-none'">
     <div class="text-box">
-      <h2 class="copec-bold-30">Brincus</h2>
+      <h2 class="copec-bold-30">{{this.title}}</h2>
       <p class="copec-rg-16-p">
-        Plataforma educativa donde podrás acceder a materias de cada curso, con
-        profesores disponibles 24/7.
+        {{this.description}}
       </p>
-      <button class="button-benefit">Obtener el beneficio<img class="arrow"
-          src="/assets/icono/icon-arrow.svg" /></button>
+      <button class="button-benefit" *ngIf="showHyperLink">
+        Obtener el beneficio<img
+          class="arrow"
+          src="/assets/icono/icon-arrow.svg"
+        />
+      </button>
     </div>
-   
   </div>
-  <div class="rigth" [ngClass]="mira? '':'display-none'">
+  <div class="rigth" [ngClass]="mira ? '' : 'display-none'">
     <div class="">
       <img class="second-image" src="/assets/img/image-benefitLink.svg" />
     </div>
   </div>
 </div>
 
-
-<div class="benefit-container-fixed fixed" [ngClass]="!mira? '':'display-none'">
+<div
+  class="benefit-container-fixed fixed"
+  [ngClass]="!mira ? '' : 'display-none'"
+>
   <img class="third-image" src="/assets/img/image-link.svg" />
   <div class="text-box-fixed">
-    <h2 class="copec-bold-30">Brincus</h2>
+    <h2 class="copec-bold-30">{{this.title}}</h2>
     <p class="copec-rg-16 text">
-      Plataforma educativa donde podrás acceder a materias de cada curso, con
-      profesores disponibles 24/7.
+      {{this.description}}
     </p>
   </div>
-  <button class="button-benefit">
+  <button class="button-benefit" *ngIf="showHyperLink">
     <div class="content-button">
-      Obtener el beneficio<img class="arrow" src="/assets/icono/icon-arrow.svg" />
+      Obtener el beneficio<img
+        class="arrow"
+        src="/assets/icono/icon-arrow.svg"
+      />
     </div>
   </button>
 </div>
-
 
 <div class="evaluate-container">
   <div class="row">
@@ -70,6 +75,5 @@
       </div>
       <span class="icon">200 valoraciones</span>
     </div>
-
   </div>
 </div>
