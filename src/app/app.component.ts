@@ -9,4 +9,8 @@ import { IdpService } from './auth/services/auth.service';
 export class AppComponent {
   constructor(private _idpService: IdpService) {}
   title = 'beneflex';
+
+  getUserProfile(atributo: string) {
+    return this._idpService.getUserProfile()['info'][atributo] === undefined ? false : true;
+  }
 }

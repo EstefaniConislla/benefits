@@ -10,6 +10,7 @@ import { HomeModule } from './home/home.module';
 import { NavBarModule } from './nav-bar/nav-bar.module';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { HttpClientModule } from '@angular/common/http';
+import { AdministratorProfileModule } from './administrator/administrator-profile.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,11 +21,12 @@ import { HttpClientModule } from '@angular/common/http';
     WorkflowModule,
     HomeModule,
     NavBarModule,
+    AdministratorProfileModule,
     HttpClientModule,
     OAuthModule.forRoot({
       resourceServer: {
         allowedUrls: ['http://www.angular.at/api'],
-        sendAccessToken: false,
+        sendAccessToken: true,
       },
     }),
   ],
