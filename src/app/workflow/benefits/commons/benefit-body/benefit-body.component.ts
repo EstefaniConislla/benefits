@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CommmonService } from 'src/app/utils/common.service';
 
 interface Transaction {
   item: string;
@@ -18,6 +19,28 @@ export class BenefitBodyComponent {
     { item: '18 y/o 19 de septiembre', cost: '$ 30.000' },
     { item: '1ro de mayo', cost: '$ 26.000' },
   ];
+  detail: string = '';
 
-  constructor(private router: ActivatedRoute) {}
+  constructor(
+    private router: ActivatedRoute,
+    private commonService: CommmonService,
+  ) {}
+
+  ngOnInit() {
+    this.router.queryParams.subscribe((params: any) => {
+      const benefit = this.getBenefit(params);
+      if (benefit) {
+        this.detail = benefit.detail;
+      }
+    });
+  }
+
+  getBenefit(params: any) {
+    const benefits = JSON.parse(
+      this.commonService.getItemLocalStorage('benefits') ?? '[]',
+    );
+    return benefits.length === 0
+      ? undefined
+      : benefits.find((b: any) => b.id === parseInt(params.idBenefit));
+  }
 }

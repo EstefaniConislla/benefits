@@ -1,0 +1,19 @@
+@import "src/scss/_variables.scss";
+
+#side-profile-1 {
+  height: 74px;
+  padding: 24px 24px 24px 32px;
+  margin-top: 63.4px;
+}
+
+.tab-admin-profile {
+  height: 70px;
+  padding: 22px 20px 22px 32px;
+  cursor: pointer;
+}
+
+.tab-admin-profile:hover {
+  background-color: $copec-navy-blue;
+  border-left: 2px solid $copec-second-dark-blue;
+  transition: background-color 0.5s;
+}

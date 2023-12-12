@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Component, ViewChild } from '@angular/core';
+import { PaginatorComponent } from 'src/app/components/paginator/paginator.component';
 export interface PeriodicElement {
   name: string;
   id: number;
@@ -97,6 +99,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./profile-table.component.scss'],
 })
 export class ProfileTableComponent {
+  @ViewChild(PaginatorComponent, { static: false }) childC!: PaginatorComponent;
+
+  currentPage = 1;
+  totalPages!: number;
+  itemsPerPage = 15;
   displayedColumns: string[] = [
     'id',
     'name',
@@ -107,4 +114,8 @@ export class ProfileTableComponent {
     'status2',
   ];
   dataSource = ELEMENT_DATA;
+
+  onPageChange(page: any) {
+    this.currentPage = page;
+  }
 }

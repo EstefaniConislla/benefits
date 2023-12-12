@@ -10,7 +10,8 @@ export class AppComponent {
   constructor(private _idpService: IdpService) {}
   title = 'beneflex';
 
-  getUserProfile(atributo: string) {
- /*    return this._idpService.getUserProfile()['info'][atributo] === undefined ? false : true; */
+  renderComponent() {
+    const userProfile = this._idpService.getUserProfile();
+    return userProfile === undefined ? false : true;
   }
 }

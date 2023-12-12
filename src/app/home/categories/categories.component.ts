@@ -2,6 +2,7 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CategoriesService } from './services/categories.service';
+import { CommmonService } from 'src/app/utils/common.service';
 
 @Component({
   selector: 'app-categories',
@@ -13,17 +14,11 @@ export class CategoriesComponent implements OnInit {
   isSizeMobile = false;
   categories: any = [];
   plans: any = [];
-  antiquies: any = [];
+  antiques: any = [];
+  beneficiaryTypes: any = [];
   selectedAntiquies: any = [];
   selectedPlans: any = [];
   selectedBeneficiaryTypes: any = [];
-
-  beneficiaryTypes = [
-    { id: 1, description: 'Beneficios para mí' },
-    { id: 2, description: 'Beneficios para mi pareja' },
-    { id: 3, description: 'Beneficios para mi familia' },
-    { id: 4, description: 'Beneficios para mis hijos' },
-  ];
 
   iconColor = '';
 
@@ -33,15 +28,11 @@ export class CategoriesComponent implements OnInit {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private categoriesService: CategoriesService,
+    private commonService: CommmonService,
   ) {}
 
   async ngOnInit(): Promise<void> {
-    const responseCategories = await this.categoriesService.getCategories();
-    const responseAntiquies = await this.categoriesService.getAntiquies();
-    const responsePlans = await this.categoriesService.getPlans();
-    this.categories = responseCategories;
-    this.antiquies = responseAntiquies;
-    this.plans = responsePlans;
+    await this.getFilters();
     const oritentation = this.breakpointObserver.observe([
       '(max-width: 768px)',
     ]);
@@ -105,5 +96,39 @@ export class CategoriesComponent implements OnInit {
       values: this.selectedBeneficiaryTypes,
     };
     this.dataSended.emit(data);
+  }
+
+  async getFilters() {
+    this.categories = this.commonService.sortArray(
+      (await this.categoriesService.getCategories()) ?? [],
+    );
+    this.antiques = this.commonService.sortArray(
+      (await this.categoriesService.getAntiques()) ?? [],
+    );
+    this.plans = this.commonService.sortArray(
+      (await this.categoriesService.getPlans()) ?? [],
+    );
+    this.beneficiaryTypes = this.commonService.sortArray(
+      (await this.categoriesService.getBeneficiaryTypes()) ?? [],
+    );
+
+    this.commonService.removeItemLocalStorage('categories');
+    this.commonService.removeItemLocalStorage('antiques');
+    this.commonService.removeItemLocalStorage('plans');
+    this.commonService.removeItemLocalStorage('beneficiaryTypes');
+
+    this.commonService.setItemLocalStorage(
+      'categories',
+      JSON.stringify(this.categories),
+    );
+    this.commonService.setItemLocalStorage(
+      'antiques',
+      JSON.stringify(this.antiques),
+    );
+    this.commonService.setItemLocalStorage('plans', JSON.stringify(this.plans));
+    this.commonService.setItemLocalStorage(
+      'beneficiaryTypes',
+      JSON.stringify(this.beneficiaryTypes),
+    );
   }
 }

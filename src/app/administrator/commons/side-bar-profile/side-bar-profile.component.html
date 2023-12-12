@@ -1,6 +1,6 @@
-<div>
-  <div
-    class="tab d-flex align-items-center"
+<div class="d-flex flex-column justify-content-start">
+  <span id="side-profile-1" class="copec-rg-16">Gestores</span>
+  <div class="tab-admin-profile" routerLink="/home"
     *ngFor="let profile of adminProfile"
   >
     <img class="fa-regular" src="{{ profile.icon }}" />

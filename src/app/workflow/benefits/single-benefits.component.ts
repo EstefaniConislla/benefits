@@ -11,7 +11,7 @@ export class SingleBenefitsComponent implements OnInit {
 
   ngOnInit() {
     this.router.queryParams.subscribe((params) => {
-      console.log(params); // { order: "popular" }
+      console.log(params);
     });
   }
 }

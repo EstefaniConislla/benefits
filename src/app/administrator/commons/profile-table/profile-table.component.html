@@ -1,11 +1,20 @@
-<div class="container-filter-profile">
-  <div class="container-search-profile">
-    <div class="search-administrator">
+<div class="container-filter-cards">
+  <div class="container-button-subtitle">
+    <div class="box-button"><span class="copec-bold-30">Perfiles</span></div>
+    <div class="box-button">
+      <button class="button-profiles">
+        Añadir nuevo perfil<img class="arrow" />
+      </button>
+    </div>
+  </div>
+
+  <div class="container-search-order">
+    <div class="search-bar">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input maxlength="70" type="text" placeholder="Buscar" />
+      <input maxlength="70" type="text" placeholder="Buscar beneficios" />
     </div>
     <div>
-      <select>
+      <select id="ben-select-1">
         <option value="order">Ordenar por</option>
         <option value="mostOld">De antiguo a reciente</option>
         <option value="actually">De reciente a antiguos</option>
@@ -15,52 +24,111 @@
     </div>
   </div>
 
+  <!-- <div>
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      class="table-responsive mat-elevation-z8"
+    >
+      <ng-container matColumnDef="id">
+        <th
+          class="th-header"
+          mat-header-cell
+          *matHeaderCellDef
+          class="display-none"
+        >
+          ID
+        </th>
+        <td mat-cell *matCellDef="let element" class="display-none">
+          {{ element.id }}
+        </td>
+      </ng-container>
 
-  <table mat-table [dataSource]="dataSource" class="table-responsive mat-elevation-z8">
+      <ng-container matColumnDef="name" removeRowDef>
+        <th mat-header-cell *matHeaderCellDef class="display-none">Nombre</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          remove
+          class="display-none"
+          RowDef
+        >
+          {{ element.name }}
+        </td>
+      </ng-container>
 
-    <ng-container matColumnDef="id" >
-      <th class="th-header" mat-header-cell *matHeaderCellDef class="display-none"> ID </th>
-      <td mat-cell *matCellDef="let element" class="display-none"> {{element.id}} </td>
-    </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef class="display-none">Email</th>
+        <td mat-cell *matCellDef="let element" class="display-none">
+          {{ element.email }}
+        </td>
+      </ng-container>
 
-    <ng-container matColumnDef="name" removeRowDef>
-      <th mat-header-cell *matHeaderCellDef class="display-none"> Nombre </th>
-      <td mat-cell *matCellDef="let element" remove class="display-none" RowDef> {{element.name}} </td>
-    </ng-container>
+      <ng-container matColumnDef="rut">
+        <th mat-header-cell *matHeaderCellDef class="display-none">RUT</th>
+        <td mat-cell *matCellDef="let element" class="display-none">
+          {{ element.rut }}
+        </td>
+      </ng-container>
 
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef class="display-none"> Email </th>
-      <td mat-cell *matCellDef="let element" class="display-none"> {{element.email}} </td>
-    </ng-container>
+      <ng-container matColumnDef="typeUser">
+        <th mat-header-cell *matHeaderCellDef class="display-none">
+          Tipo de usuario
+        </th>
+        <td mat-cell *matCellDef="let element" class="display-none">
+          {{ element.typeUser }}
+        </td>
+      </ng-container>
 
-    <ng-container matColumnDef="rut">
-      <th mat-header-cell *matHeaderCellDef class="display-none"> RUT </th>
-      <td mat-cell *matCellDef="let element" class="display-none"> {{element.rut}} </td>
-    </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef class="display-none">Estado</th>
+        <td mat-cell *matCellDef="let element" class="display-none">
+          <mat-chip
+            mat-chip
+            [disabled]="
+              element.status.toLowerCase() === 'activo' ? false : true
+            "
+          >
+            {{ element.status }}
+          </mat-chip>
+        </td>
+      </ng-container>
 
-    <ng-container matColumnDef="typeUser">
-      <th mat-header-cell *matHeaderCellDef class="display-none"> Tipo de usuario </th>
-      <td mat-cell *matCellDef="let element" class="display-none"> {{element.typeUser}} </td>
-    </ng-container>
+      <ng-container matColumnDef="status2">
+        <th mat-header-cell *matHeaderCellDef class="display-estado">Estado</th>
+        <td mat-cell *matCellDef="let element" class="display-estado">
+          <div>
+            {{ element.email }} <br />
+            <mat-chip
+              mat-chip
+              [disabled]="
+                element.status.toLowerCase() === 'activo' ? false : true
+              "
+            >
+              {{ element.status }}
+            </mat-chip>
+          </div>
+        </td>
+      </ng-container>
 
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef class="display-none"> Estado </th>
-      <td mat-cell *matCellDef="let element" class="display-none"> {{element.status}} </td>
-    </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div> -->
+
+<div class="back-noFound">
+  <div class="noFound d-flex align-items-center">
+    <img class="fa-regular" src="/assets/img/noresults.svg" />
+  </div>
+</div>
 
 
-    <ng-container matColumnDef="status2">
-      <th mat-header-cell *matHeaderCellDef class="display-estado"> Estado </th>
-      <td mat-cell *matCellDef="let element" class="display-estado">
-        <div>
-          {{element.email}} <br>
-          {{element.status}} <br>
-          <button>demo</button>
-        </div>
-      </td>
-    </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+  <!-- <div>
+    <app-paginator
+      [currentPage]="currentPage"
+      [totalPages]="totalPages"
+      (pageChange)="onPageChange($event)"
+    ></app-paginator>
+  </div> -->
 </div>

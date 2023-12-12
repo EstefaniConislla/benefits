@@ -6,6 +6,7 @@ import { Benefits } from '../models/benefts.interface';
 import { BenefitsService } from '../services/benefits.service';
 import { Router } from '@angular/router';
 import { PaginatorComponent } from 'src/app/components/paginator/paginator.component';
+import { CommmonService } from 'src/app/utils/common.service';
 
 @Component({
   selector: 'app-benefits',
@@ -30,6 +31,7 @@ export class BenefitsComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     private benefitsService: BenefitsService,
     private router: Router,
+    private commonService: CommmonService,
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -39,16 +41,27 @@ export class BenefitsComponent implements OnInit {
     oritentation.subscribe((lay) => {
       this.isSizeMobile = lay.breakpoints['(max-width: 768px)'];
     });
-    localStorage.removeItem('benefits');
-    this.benefits = await this.benefitsService.getBenefits();
-    localStorage.setItem('benefits', JSON.stringify(this.benefits));
+    await this.getBenefits();
+  }
+
+  async getBenefits() {
+    this.commonService.removeItemLocalStorage('benefits');
+    this.benefits = this.commonService.sortArray(
+      (await this.benefitsService.getBenefits()) ?? [],
+    );
+    this.commonService.setItemLocalStorage(
+      'benefits',
+      JSON.stringify(this.benefits),
+    );
     this.totalPages = Math.ceil(this.benefits.length / this.itemsPerPage);
     this.totalRows = this.benefits.length;
     this.paginateCards(1, this.benefits);
   }
 
   filterBenefits(data: any) {
-    this.benefits = JSON.parse(localStorage.getItem('benefits') ?? '');
+    this.benefits = JSON.parse(
+      this.commonService.getItemLocalStorage('benefits') ?? '[]',
+    );
     switch (data.type) {
       case 'category':
         this.filterBenefitsByCategories(data);
@@ -74,7 +87,9 @@ export class BenefitsComponent implements OnInit {
   }
 
   onSearch() {
-    this.benefits = JSON.parse(localStorage.getItem('benefits') ?? '');
+    this.benefits = JSON.parse(
+      this.commonService.getItemLocalStorage('benefits') ?? '[]',
+    );
     if (this.searchTerm.length >= 4) {
       this.paginatedCards = this.benefits.filter((benefit) =>
         benefit.title.toLowerCase().includes(this.searchTerm.toLowerCase()),
@@ -104,11 +119,6 @@ export class BenefitsComponent implements OnInit {
   getStatusModalFilter(status: boolean) {
     this.showFilterMobile = status;
   }
-
-  /*onSortChange() {
-    const ordererCards$ = this.sortCards(this.cards$, this.selectedSortOption);
-    this.paginateCards(1, ordererCards$);
-  }*/
 
   sortCards(
     cards$: Observable<Benefits[]>,
@@ -145,22 +155,6 @@ export class BenefitsComponent implements OnInit {
       this.paginateCards(1, newBenefits);
     }
   }
-
-  // filterBenefitsByAntiquies(data: any) {
-  //     if (data.values.length === 0) {
-  //     this.totalPages = Math.ceil(this.benefits.length / this.itemsPerPage);
-  //    this.paginateCards(1, this.benefits);
-  //    } else {
-  //     const benefitFiltered = this.benefits.filter((benefit) =>
-  //       benefit.antiques.some((id: any) => data.values.includes(id)),
-  //      );
-  //     this.totalPages = Math.ceil(benefitFiltered.length / this.itemsPerPage);
-
-  //     if (benefitFiltered.length === 0) this.benefits = [];
-
-  //     this.paginateCards(1, benefitFiltered);
-  //   }
-  // }
 
   filterBenefitsByPlans(data: any) {
     if (data.values.length === 0) {

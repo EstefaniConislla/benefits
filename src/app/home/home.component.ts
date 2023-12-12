@@ -9,7 +9,8 @@ import { IdpService } from '../auth/services/auth.service';
 export class HomeComponent {
   constructor(private _idpService: IdpService) {}
 
-  getUserProfile(atributo: string) {
-   /*  return this._idpService.getUserProfile()['info'][atributo] === undefined ? false : true; */
+  renderComponent() {
+    const userProfile = this._idpService.getUserProfile();
+    return userProfile === undefined ? false : true;
   }
 }

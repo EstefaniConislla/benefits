@@ -13,7 +13,6 @@ export class CardBenefitComponent {
   constructor(private router: Router) {}
 
   goToDetailBenefit() {
-    console.log(this.benefit);
     this.router.navigate(['/benefits'], {
       queryParams: { idBenefit: this.benefit.id },
     });

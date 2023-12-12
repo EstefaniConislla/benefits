@@ -11,15 +11,19 @@ export class NavBarComponent {
   @ViewChild(MatMenuTrigger) trigger!: MatMenuTrigger;
 
   constructor(
-   /*  private _idpService: IdpService, */
+    private _idpService: IdpService,
     private router: Router,
   ) {}
 
   cerrarSesion() {
-   /*  this._idpService.logout(); */
+    this._idpService.logout();
   }
 
   goToAdmin() {
     this.router.navigate(['/admin']);
+  }
+
+  goToHome() {
+    this.router.navigate(['/home']);
   }
 }

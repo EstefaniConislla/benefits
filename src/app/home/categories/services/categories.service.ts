@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { enviroment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,26 +11,18 @@ export class CategoriesService {
   constructor(private httpClient: HttpClient) {}
 
   async getCategories(): Promise<any> {
-    return firstValueFrom(
-      this.httpClient.get(
-        'https://vp8919z4wa.execute-api.us-west-2.amazonaws.com/dev/category',
-      ),
-    );
+    return firstValueFrom(this.httpClient.get(enviroment.categories));
   }
 
-  async getAntiquies(): Promise<any> {
-    return firstValueFrom(
-      this.httpClient.get(
-        'https://vp8919z4wa.execute-api.us-west-2.amazonaws.com/dev/antiquity',
-      ),
-    );
+  async getAntiques(): Promise<any> {
+    return firstValueFrom(this.httpClient.get(enviroment.categories));
   }
 
   async getPlans(): Promise<any> {
-    return firstValueFrom(
-      this.httpClient.get(
-        'https://vp8919z4wa.execute-api.us-west-2.amazonaws.com/dev/plan',
-      ),
-    );
+    return firstValueFrom(this.httpClient.get(enviroment.plan));
+  }
+
+  async getBeneficiaryTypes(): Promise<any> {
+    return firstValueFrom(this.httpClient.get(enviroment.beneficiaryTypes));
   }
 }
