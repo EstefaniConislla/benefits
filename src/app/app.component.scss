@@ -11,3 +11,10 @@ app-nav-bar {
   width: 100%;
   top: 0;
 }
+
+#container-sideBar {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  margin: 0em 1em;
+}
+

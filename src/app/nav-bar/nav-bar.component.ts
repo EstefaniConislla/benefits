@@ -17,10 +17,13 @@ export class NavBarComponent {
 
   cerrarSesion() {
     this._idpService.logout();
+    
   }
 
   goToAdmin() {
     this.router.navigate(['/admin']);
+    localStorage.setItem('admin', 'true');
+    this._idpService.admin.next(true);
   }
 
   goToHome() {

@@ -3,6 +3,7 @@ import { AdministratorProfileComponent } from './administrator-profile.component
 import { AdministratorProfileRoutesChildren } from './routes/administrator-profile-routes.enum';
 import { TabProfilesComponent } from './tab-profiles/tab-profiles.component';
 import { TabBenefitsComponent } from './tab-benefits/tab-benefits.component';
+import { ProfileTableComponent } from './commons/profile-table/profile-table.component';
 
 const AdminProfileRoutes: Routes = [
   {
@@ -11,7 +12,7 @@ const AdminProfileRoutes: Routes = [
   },
   {
     path: AdministratorProfileRoutesChildren.TAB_PROFILE,
-    component: TabProfilesComponent,
+    component: ProfileTableComponent,
   },
   {
     path: AdministratorProfileRoutesChildren.TAB_BENEFIT,
@@ -31,4 +32,4 @@ const AdminProfileRoutes: Routes = [
   // },
 ];
 
-export const ADMINISTRATOR_PROFILE_ROUTES = RouterModule.forChild(AdminProfileRoutes);
+/* export const ADMINISTRATOR_PROFILE_ROUTES = RouterModule.forChild(AdminProfileRoutes); */

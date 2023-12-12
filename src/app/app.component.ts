@@ -7,7 +7,13 @@ import { IdpService } from './auth/services/auth.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private _idpService: IdpService) {}
+  status = false;
+  constructor(private _idpService: IdpService) {
+    this._idpService.admin.subscribe((status) => {
+     const evalue = JSON.parse(localStorage.getItem('admin') || '') ;
+     this.status = status || evalue;
+    });
+  }
   title = 'beneflex';
 
   renderComponent() {

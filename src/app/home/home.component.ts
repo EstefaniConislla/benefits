@@ -10,6 +10,8 @@ export class HomeComponent {
   constructor(private _idpService: IdpService) {}
 
   renderComponent() {
+    this._idpService.admin.next(false);
+    localStorage.setItem('admin', 'false');
     const userProfile = this._idpService.getUserProfile();
     return userProfile === undefined ? false : true;
   }

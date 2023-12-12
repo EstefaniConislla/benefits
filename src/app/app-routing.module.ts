@@ -20,7 +20,9 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdministratorProfileComponent,
+    loadChildren: () =>
+    import('./administrator/administrator-profile.module').then((m) => m.AdministratorProfileModule)
+ /*    component: AdministratorProfileComponent, */
   },
 ];
 @NgModule({

@@ -1,2 +1,10 @@
 <app-nav-bar *ngIf="renderComponent()"></app-nav-bar>
-<router-outlet></router-outlet>
+
+
+<div *ngIf="renderComponent() && status">
+    <div id="container-sideBar">
+        <app-side-bar-profile></app-side-bar-profile>
+       
+    </div>
+</div>
+<router-outlet ></router-outlet>

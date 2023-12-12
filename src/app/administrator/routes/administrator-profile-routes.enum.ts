@@ -1,8 +1,8 @@
 export enum AdministratorProfileRoutesChildren {
-    ADMIN = 'Admin',
-    TAB_BENEFIT = 'Beneficios',
-    TAB_CATEGORY = 'Categorías',
-    TAB_PROFILE = 'Perfiles',
+    ADMIN = 'admin',
+    TAB_BENEFIT = 'beneficios',
+    TAB_CATEGORY = 'categorías',
+    TAB_PROFILE = 'perfiles',
     TAB_USERS = 'Usuarios',
     TAB_REQUIRY = 'Solicitudes',
 }

@@ -1,9 +1,12 @@
 <div class="d-flex flex-column justify-content-start">
   <span id="side-profile-1" class="copec-rg-16">Gestores</span>
-  <div class="tab-admin-profile" routerLink="/home"
+  <div class="tab-admin-profile"
     *ngFor="let profile of adminProfile"
   >
+  <a [routerLink]="profile.link">
     <img class="fa-regular" src="{{ profile.icon }}" />
     <span class="copec-lg-16 color-black ms-2">{{ profile.name }}</span>
+  </a>
+  
   </div>
 </div>
