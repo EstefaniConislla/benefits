@@ -21,7 +21,6 @@ import { AdministratorProfileModule } from './administrator/administrator-profil
     WorkflowModule,
     HomeModule,
     NavBarModule,
-    AdministratorProfileModule,
     HttpClientModule,
     OAuthModule.forRoot({
       resourceServer: {
@@ -29,6 +28,7 @@ import { AdministratorProfileModule } from './administrator/administrator-profil
         sendAccessToken: true,
       },
     }),
+    AdministratorProfileModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

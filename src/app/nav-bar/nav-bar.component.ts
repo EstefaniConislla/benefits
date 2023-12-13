@@ -17,7 +17,6 @@ export class NavBarComponent {
 
   cerrarSesion() {
     this._idpService.logout();
-    
   }
 
   goToAdmin() {

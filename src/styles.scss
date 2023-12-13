@@ -24,8 +24,8 @@ body {
 
 .cdk-overlay-container{
   z-index: 9999 !important;
+  margin-top: 10px;
 }
-
 
 /* Importing Bootstrap SCSS file. */
 @import "bootstrap/scss/bootstrap";

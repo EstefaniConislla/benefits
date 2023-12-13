@@ -3,19 +3,18 @@
     <div class="text-box">
       <h2 class="copec-bold-30">{{this.title}}</h2>
       <p class="copec-rg-16-p">
-        {{this.description}}
+        {{this.longDescription}}
       </p>
-      <button class="button-benefit" *ngIf="showHyperLink">
-        Obtener el beneficio<img
+      <div class="button-benefit" *ngIf="showHyperLink">
+        <a href="{{this.link}}" style="color: white;">Obtener Beneficio<img
           class="arrow"
-          src="/assets/icono/icon-arrow.svg"
-        />
-      </button>
+          src="/assets/icono/icon-arrow.svg"></a>
+      </div>
     </div>
   </div>
   <div class="rigth" [ngClass]="mira ? '' : 'display-none'">
     <div class="">
-      <img class="second-image" src="/assets/img/image-benefitLink.svg" />
+      <img class="second-image" src="{{this.image}}" />
     </div>
   </div>
 </div>
@@ -24,21 +23,18 @@
   class="benefit-container-fixed fixed"
   [ngClass]="!mira ? '' : 'display-none'"
 >
-  <img class="third-image" src="/assets/img/image-link.svg" />
+  <img class="third-image" src="{{this.image}}" />
   <div class="text-box-fixed">
     <h2 class="copec-bold-30">{{this.title}}</h2>
     <p class="copec-rg-16 text">
       {{this.description}}
     </p>
   </div>
-  <button class="button-benefit" *ngIf="showHyperLink">
-    <div class="content-button">
-      Obtener el beneficio<img
-        class="arrow"
-        src="/assets/icono/icon-arrow.svg"
-      />
-    </div>
-  </button>
+  <div class="button-benefit" *ngIf="showHyperLink">
+    <a href="{{this.link}}" style="color: white;">Obtener Beneficio<img
+      class="arrow"
+      src="/assets/icono/icon-arrow.svg"></a>
+  </div>
 </div>
 
 <div class="evaluate-container">
@@ -64,7 +60,7 @@
     </div>
     <div class="col-sm-6 col-lg container-box card-white">
       <div class="box">Dirigido a</div>
-      <span class="icon copec-bold-20">{{this.beneficiaryType}}</span>
+      <span class="icon copec-bold-16">{{this.beneficiaryType}}</span>
       <span class="icon">Multiuso</span>
     </div>
     <div class="col-6 col-lg container-box last-card">

@@ -1,5 +1,6 @@
-import { Component, HostListener } from '@angular/core';
-import { ActivatedRoute, ResolveEnd } from '@angular/router';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Component, HostListener, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CategoriesService } from 'src/app/home/categories/services/categories.service';
 import { CommmonService } from 'src/app/utils/common.service';
 
@@ -8,18 +9,20 @@ import { CommmonService } from 'src/app/utils/common.service';
   templateUrl: './benefit-header.component.html',
   styleUrls: ['./benefit-header.component.scss'],
 })
-export class BenefitHeaderComponent {
-  public showHyperLink: boolean = false;
-  public title: string = '';
-  public description: string = '';
-  public mira: boolean = true;
-  public baseBenefit: string = '';
-  public baseAntiquity: string = '';
-  public category: string = '';
-  public antiquity: string = '';
-  public plan: string = '';
-  public beneficiaryType: string = '';
-  public link: string = '';
+export class BenefitHeaderComponent implements OnInit {
+  public showHyperLink = false;
+  public title = '';
+  public description = '';
+  public mira = true;
+  public baseBenefit = '';
+  public baseAntiquity = '';
+  public category = '';
+  public antiquity = '';
+  public plan = '';
+  public beneficiaryType = '';
+  public link = '';
+  public longDescription = '';
+  public image = '';
 
   @HostListener('window:scroll', ['$event'])
   onscroll() {
@@ -46,30 +49,36 @@ export class BenefitHeaderComponent {
       this.commonService.getItemLocalStorage('plans') ?? '[]',
     );
     const beneficiaryTypes = JSON.parse(
-      this.commonService.getItemLocalStorage('plans') ?? '[]',
+      this.commonService.getItemLocalStorage('beneficiaryTypes') ?? '[]',
     );
 
     this.router.queryParams.subscribe((params: any) => {
       const benefit = this.getBenefit(params);
       if (benefit) {
+        console.log(benefit);
         this.title = benefit.title;
         this.description = benefit.description;
+        this.longDescription = benefit.longDescription;
         this.category = categories.find(
           (c: any) => c.id === benefit.categories[0],
         ).description;
         this.antiquity = antiques.find(
           (a: any) => a.id === benefit.antiques[0],
         ).description;
-        this.plan = antiques.find(
-          (p: any) => p.id === benefit.plans[0],
-        ).description;
+        this.plan = plans.find((p: any) => p.id === benefit.plans[0]).titleplan;
         this.link = benefit.link;
-        this.beneficiaryType =
-          beneficiaryTypes.length === 4
-            ? 'Todos'
-            : beneficiaryTypes.find(
-                (p: any) => p.id === benefit.beneficiaryTypes[0],
-              ).description;
+        this.image = benefit.image;
+        //this.beneficiaryType = beneficiaryTypes.length === 4 ? "Todos" : beneficiaryTypes.find((p: any) => p.id === benefit.beneficiaryTypes[0]).description;
+        console.log(benefit.beneficiaryTypes.length);
+        if (benefit.beneficiaryTypes.length === beneficiaryTypes.length) {
+          this.beneficiaryType = 'Todos';
+        } else {
+          const filteredDescriptions = beneficiaryTypes
+            .filter((item: any) => benefit.beneficiaryTypes.includes(item.id))
+            .map((item: any) => item.description);
+          console.log(filteredDescriptions);
+          this.beneficiaryType = filteredDescriptions.join(', ');
+        }
 
         if (benefit.link !== '') {
           this.showHyperLink = true;

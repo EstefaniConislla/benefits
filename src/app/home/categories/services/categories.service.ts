@@ -15,7 +15,7 @@ export class CategoriesService {
   }
 
   async getAntiques(): Promise<any> {
-    return firstValueFrom(this.httpClient.get(enviroment.categories));
+    return firstValueFrom(this.httpClient.get(enviroment.antiques));
   }
 
   async getPlans(): Promise<any> {

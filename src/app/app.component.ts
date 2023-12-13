@@ -10,8 +10,8 @@ export class AppComponent {
   status = false;
   constructor(private _idpService: IdpService) {
     this._idpService.admin.subscribe((status) => {
-     const evalue = JSON.parse(localStorage.getItem('admin') || '') ;
-     this.status = status || evalue;
+      const evalue = JSON.parse(localStorage.getItem('admin') || '');
+      this.status = status || evalue;
     });
   }
   title = 'beneflex';

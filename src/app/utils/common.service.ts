@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommmonService {
-  constructor() {}
-
   sortArray(jsonData: any) {
     const compareIds = (a: any, b: any) => {
       return a.id - b.id;

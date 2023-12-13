@@ -1,6 +1,10 @@
 <header>
   <nav class="d-flex justify-content-between">
-    <img  class="button-navBar"  (click)="goToHome()" src="/assets/img/navBar_logo.svg" />
+    <img
+      class="button-navBar"
+      (click)="goToHome()"
+      src="/assets/img/navBar_logo.svg"
+    />
     <div class="nav-menu-mobile">
       <button><i class="fa-solid fa-magnifying-glass"></i></button>
       <button><i class="fa-regular fa-bell"></i></button>
@@ -21,13 +25,13 @@
           <mat-icon fontIcon="account_circle"></mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>
+          <button (click)="goToAdmin()" mat-menu-item>
             <mat-icon>person</mat-icon>
-            <span (click)="goToAdmin()">Administrador</span>
+            <span>Administrador</span>
           </button>
-          <button mat-menu-item>
+          <button (click)="cerrarSesion()" mat-menu-item>
             <mat-icon>logout</mat-icon>
-            <span (click)="cerrarSesion()">Cerrar Sesión</span>
+            <span>Cerrar Sesión</span>
           </button>
           <button mat-menu-item>
             <mat-icon>key</mat-icon>

@@ -19,6 +19,7 @@ export class CategoriesComponent implements OnInit {
   selectedAntiquies: any = [];
   selectedPlans: any = [];
   selectedBeneficiaryTypes: any = [];
+  public countBenefit = 0;
 
   iconColor = '';
 
@@ -111,6 +112,14 @@ export class CategoriesComponent implements OnInit {
     this.beneficiaryTypes = this.commonService.sortArray(
       (await this.categoriesService.getBeneficiaryTypes()) ?? [],
     );
+    this.countBenefit = JSON.parse(
+      this.commonService.getItemLocalStorage('benefits') ?? '[]',
+    ).length;
+
+    this.commonService.removeItemLocalStorage('categories');
+    this.commonService.removeItemLocalStorage('antiques');
+    this.commonService.removeItemLocalStorage('plans');
+    this.commonService.removeItemLocalStorage('beneficiaryTypes');
 
     this.commonService.removeItemLocalStorage('categories');
     this.commonService.removeItemLocalStorage('antiques');
