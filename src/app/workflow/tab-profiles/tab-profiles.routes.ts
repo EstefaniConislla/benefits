@@ -5,6 +5,22 @@ const TabProfilesRoutes: Routes = [
   {
     path: '',
     component: TabProfilesComponent,
+    children: [
+      {
+        path: 'profile-table',
+        loadChildren: () =>
+          import('../profile-table/profile-table.module').then(
+            (m) => m.ProfileTableModule,
+          ),
+      },
+      {
+        path: 'add-profile',
+        loadChildren: () =>
+          import('../add-profile/add-profile.module').then(
+            (m) => m.AddProfileModule,
+          ),
+      },
+    ],
   },
 ];
 

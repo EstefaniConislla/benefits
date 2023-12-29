@@ -1,0 +1,97 @@
+@import "src/scss/_variables.scss";
+
+.container-add-profiles {
+  margin-left: 1em;
+  margin-top: 63.4px;
+}
+
+#id-breadcrumb-3 {
+  padding-top: 24px;
+}
+
+.container-breadcrumb {
+  margin-top: 63.4px;
+}
+
+.box-subtitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 50px;
+}
+
+.box-total-content {
+  display: flex;
+  padding: 20px 0 20px;
+}
+
+.accordion-box {
+  background-color: $copec-lightgray-2 !important;
+}
+
+.content-title {
+  padding: 7px 0px 7px 0px;
+  color: $copec-dark-gray;
+}
+
+.content-description {
+  padding: 7px 0px 7px 0px;
+}
+
+.box-description {
+  height: 50px;
+  color: $copec-dark-gray;
+  border: none;
+  border-bottom: solid 1px $copec-lightgray-3;
+}
+
+.mat-radio-button,
+.mat-slide-toggle {
+  background: $copec-second-dark-blue !important;
+}
+
+.first-box,
+.second-box,
+.third-box {
+  margin: 10px 0 10px 0;
+}
+
+.button-add-profile {
+  width: 217px;
+  height: 56px;
+  gap: 4px;
+  border: 0;
+  background-color: $copec-second-dark-blue;
+  color: $copec-white !important;
+  outline: none;
+  cursor: pointer;
+}
+
+.box-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-subtitle-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-sub {
+  color: $copec-second-dark-blue;
+}
+
+.accordion-button {
+  background-color: $copec-lightgray-2 !important;
+}
+
+.accordion-button:focus {
+  border-color: $copec-lightgray-2 !important;
+  box-shadow: none !important;
+}

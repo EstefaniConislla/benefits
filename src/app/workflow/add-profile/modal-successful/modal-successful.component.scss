@@ -1,0 +1,67 @@
+@import "src/scss/_variables.scss";
+
+.modal-box {
+  background-color: $copec-lightgray-2;
+}
+
+.modal-button {
+  color: $copec-lightgray-2;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  background: $copec-second-dark-blue;
+  width: 186px;
+  height: 56px;
+  padding: 15px 24px 15px 24px;
+  gap: 10px;
+}
+
+.box-button {
+  display: flex;
+  justify-content: flex-end;
+  height: 48px;
+  padding: 12px;
+  gap: 24px;
+  color: $copec-lightgray-2;
+}
+
+.closeModalIcon {
+  border: none;
+  background: $copec-lightgray-2;
+}
+
+.mdc-dialog__actions {
+  padding: 0;
+}
+
+.button-close {
+  font-size: 30px;
+  color: $copec-second-dark-blue;
+}
+
+.title-modal {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 0 1px;
+  padding: 0 32px 9px;
+}
+
+.modal-body {
+  margin: 32px 225px 32px 0;
+}
+
+.container-search,
+.icon-box {
+  margin-left: 32px;
+}
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  opacity: 1;
+  margin-top: -10px;
+}
+
+mat-dialog-actions {
+  border: none;
+  border-top: solid 1px $copec-lightgray-3;
+}

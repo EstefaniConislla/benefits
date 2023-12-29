@@ -1,0 +1,45 @@
+<div class="modal-box">
+  <div class="box-button">
+    <button
+      type="button"
+      class="close pull-right closeModalIcon"
+      (click)="closeModal()"
+      aria-label="Close"
+    >
+      <span class="button-close" aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="icon-box">
+    <img class="search-icon-image" src="/assets/icono/icon-profiles-7.svg" />
+  </div>
+  <div class="modal-body">
+    <span class="title-modal copec-bold-20">
+      Busca un usuario para añadirle un perfil de administrador
+    </span>
+    <form class="container-search">
+      <div  class="search-bar-profile">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="text"
+          placeholder=""
+          [formControl]="control"
+          [matAutocomplete]="auto"
+          class="example-input"
+        />
+      </div>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let street of filteredStreets | async"
+          [value]="street"
+        >
+          {{ street }}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+  </div>
+  <mat-dialog-actions align="end">
+    <button class="modal-button" (click)="goInfoProfile()" [mat-dialog-close]="true" cdkFocusInitial>
+      Continuar
+    </button>
+  </mat-dialog-actions>
+</div>

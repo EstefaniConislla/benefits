@@ -1,0 +1,154 @@
+<div class="container-filter-cards">
+  <div class="container-breadcrumb">
+    <p id="id-breadcrumb-2" class="copec-lg-14">Admin/Categorías/</p>
+  </div>
+  <div class="container-button-subtitle">
+    <div class="box-button1"><span class="copec-bold-30">Categorías</span></div>
+    <div class="box-button2">
+      <button class="button-profiles">Añadir nueva categoría</button>
+    </div>
+  </div>
+
+  <div class="container-search-order">
+    <div class="search-bar">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input
+        (keyup)="searchFilter($event)"
+        maxlength="70"
+        type="text"
+        placeholder="Buscar"
+        #input
+      />
+    </div>
+    <div>
+      <select class="ordenarPor">
+        <option value="order">Ordenar por</option>
+        <option value="mostOld">De antiguo a reciente</option>
+        <option value="actually">De reciente a antiguos</option>
+        <option value="ordertoA">A-Z</option>
+        <option value="ordertoZ">Z-A</option>
+      </select>
+    </div>
+  </div>
+
+  <div  *ngIf="categories">
+    <table
+      mat-table
+      [dataSource]="categories"
+      class="table-responsive mat-elevation-z8"
+    >
+      <ng-container matColumnDef="icon">
+        <th
+          class="th-header"
+          mat-header-cell
+          *matHeaderCellDef
+          class="display-none"
+        >
+          Icono
+        </th>
+        <td mat-cell *matCellDef="let element" class="display-none">
+          <img _ngcontent-ng-c1758309562="" class="fa-regular" id="cat-cat-img-1-1" src="{{ element.icon }}" aria-hidden="true">
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description" removeRowDef>
+        <th mat-header-cell *matHeaderCellDef class="display-none">Nombre de Categoría</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          remove
+          class="display-none"
+          RowDef
+        >
+          {{ element.description }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="idcategory">
+        <th mat-header-cell *matHeaderCellDef class="display-none">ID de la Categoría</th>
+        <td mat-cell *matCellDef="let element" class="display-none">
+          {{ element.idcategory }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="numberbenefit">
+        <th mat-header-cell *matHeaderCellDef class="display-none">Numero de Beneficios</th>
+        <td mat-cell *matCellDef="let element" class="display-none">
+          {{ element.numberbenefit }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="datepublication">
+        <th mat-header-cell *matHeaderCellDef class="display-none">
+          Fecha de publicación
+        </th>
+        <td mat-cell *matCellDef="let element" class="display-none">
+          {{ element.datepublication }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef class="display-none">Estado</th>
+        <td mat-cell *matCellDef="let element" class="display-none">
+          <mat-chip
+            mat-chip
+            [ngClass]="{
+              'chip-activo': element.status.toLowerCase() === 'publicado',
+              'chip-inactivo': element.status.toLowerCase() === 'inactivo'
+            }"
+            [disabled]="
+              element.status.toLowerCase() === 'publicado' ? false : true
+            "
+          >
+          <div class="clip-text">
+            {{ element.status }}
+          </div>
+          </mat-chip>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status2">
+        <th mat-header-cell *matHeaderCellDef class="display-estado">Estado</th>
+        <td mat-cell *matCellDef="let element" class="display-estado">
+          <div>
+            {{ element.code }} <br />
+            <mat-chip
+              mat-chip
+              [disabled]="
+                element.status.toLowerCase() === 'publicado' ? false : true
+              "
+            >
+              {{ element.status }}
+            
+            </mat-chip>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="6">
+          No se encontraron resultados para "{{ input.value }}"
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="ben-div-6" *ngIf="categories">
+      <div>
+        <app-paginator id="ben-app-4"
+          [currentPage]="currentPage"
+          [totalPages]="totalPages"
+          (pageChange)="onPageChange($event)"
+        ></app-paginator>
+      </div>
+  
+    <ng-template #noResults id="ben-template-1">
+      <div id="ben-div-9" class="noFound d-flex align-items-center">
+        <img id="ben-imagen-1" class="fa-regular" src="/assets/img/no_results.svg" />
+      </div>
+    </ng-template>
+  </div>
+</div>

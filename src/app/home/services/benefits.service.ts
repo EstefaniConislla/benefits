@@ -10,12 +10,8 @@ import { enviroment } from 'src/environments/environment';
 export class BenefitsService {
   constructor(private httpClient: HttpClient) {}
 
-  /*getBenefits(): Benefits[] {
-    // Simula una operación asincrónica, por ejemplo, obtener datos de una API
-    return this.benefits;
-  }*/
-
   async getBenefits(): Promise<Benefits[]> {
+    console.log(enviroment);
     return firstValueFrom<Benefits[]>(
       this.httpClient.get<Benefits[]>(enviroment.benefit),
     );

@@ -1,4 +1,4 @@
-<div class="d-flex flex-column justify-content-start">
+<div class="d-flex flex-column justify-content-start" *ngIf="!isSizeMobile">
   <span id="side-profile-1" class="copec-rg-16">Gestores</span>
   <div class="tab-admin-profile" *ngFor="let profile of adminProfile">
     <img class="fa-regular" src="{{ profile.icon }}" />

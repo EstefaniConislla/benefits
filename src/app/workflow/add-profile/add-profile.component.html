@@ -1,0 +1,190 @@
+<div class="container-add-profiles">
+  <div class="container-breadcrumb">
+    <p id="id-breadcrumb-3" class="copec-lg-14">Perfiles/AñadirPerfil</p>
+  </div>
+  <div class="container-subtitle-box">
+    <div class="box-button1"><span class="copec-bold-30">Isabella Andrea González Pinto</span></div>
+    <div class="box-button2">
+      <p class="copec-lg-12">Visualizar cómo</p>
+      <p class="copec-rg-14 text-sub">Isabella González <img src="/assets/icono/icon-eyes.svg" /></p>
+    </div>
+  </div>
+  <div ngbAccordion>
+    <div ngbAccordionItem [collapsed]="false" class="accordion-box">
+      <h2 ngbAccordionHeader>
+        <button class="copec-rg-20" ngbAccordionButton>1. Información personal</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <div class="box-description">
+              <span>Datos personales del trabajador.</span>
+            </div>
+            <div class="box-total-content">
+              <div class="box-subtitle">
+                <span id="content1" class="content-title">ID</span>
+                <span id="content2" class="content-title">Estado perfil</span>
+                <span id="content3" class="content-title">Nombre</span>
+                <span id="content4" class="content-title">Fecha de nacimiento</span>
+                <span id="content5" class="content-title">Rut</span>
+                <span id="content6" class="content-title">Correo</span>
+                <span id="content7" class="content-title">Última visita</span>
+                <span id="content8" class="content-title">Última modificación</span>
+              </div>
+              <div class="box-content">
+                <span class="content-description">3464312</span>
+                <span class="content-description">Activo</span>
+                <span class="content-description">Isabella González Pinto</span>
+                <span class="content-description">20-12-1990</span>
+                <span class="content-description">17.695.490-5</span>
+                <span class="content-description">isabella@mail.com</span>
+                <span class="content-description">30/10/2023</span>
+                <span class="content-description">30/10/2023</span>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <div ngbAccordionItem class="accordion-box">
+      <h2 ngbAccordionHeader>
+        <button class="copec-rg-20" ngbAccordionButton>2. Información laboral</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <div class="box-description">
+              <span>Información laboral del trabajador.</span>
+            </div>
+            <div class="box-total-content">
+              <div class="box-subtitle">
+                <span id="content9" class="content-title">Jefe</span>
+                <span id="content10" class="content-title">Cargo</span>
+                <span id="content11" class="content-title">Gerencia</span>
+                <span id="content12" class="content-title">Tipo de contrato</span>
+                <span id="content13" class="content-title">Compañia a la que pertenece</span>
+                <span id="content14" class="content-title">Tipo de plan</span>
+                <span id="content15" class="content-title">Fecha de ingreso</span>
+              </div>
+              <div class="box-content">
+                <span class="content-description">Guisela Andrea</span>
+                <span class="content-description">Contreras Peña</span>
+                <span class="content-description">12.098.092-1</span>
+                <span class="content-description">Subgerente</span>
+                <span class="content-description">COPEC</span>
+                <span class="content-description">Plan familiar</span>
+                <span class="content-description">02-04-2023</span>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <div ngbAccordionItem class="accordion-box">
+      <h2 ngbAccordionHeader>
+        <button class="copec-rg-20" ngbAccordionButton>3. Información Complementaria</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <form #miFormulario="ngForm">
+              <section class="first-box">
+                <p class="copec-bold-16">Estado</p>
+                <div class="row">
+                  <div class="col-2">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Perfil activo</label>
+                  </div>
+                  <div class="col-10">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                        [(ngModel)]="perfilActivo" name="perfilActivo">
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="second-box">
+                <p class="copec-bold-16">Tipo de perfil</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="tipoPerfil" id="flexRadioDefault1" value="Trabajador"
+                    [(ngModel)]="tipoPerfil">
+                  <label class="form-check-label" for="flexRadioDefault1">Trabajador</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="tipoPerfil" id="flexRadioDefault2"
+                    value="Administrador" [(ngModel)]="tipoPerfil">
+                  <label class="form-check-label" for="flexRadioDefault2">Administrador</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="tipoPerfil" id="flexRadioDefault3"
+                    value="SuperAdministrador" [(ngModel)]="tipoPerfil">
+                  <label class="form-check-label" for="flexRadioDefault3">Súper administrador</label>
+                </div>
+              </section>
+
+              <section class="third-box">
+                <p class="copec-bold-16">Permisos</p>
+                <p>Selecciona los permisos que quieres asignar al perfil.</p>
+
+                <div class="row">
+                  <div class="col-12 col-md-3 mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                      <label class="form-check-label" for="inlineCheckbox1">Crear y editar beneficios</label>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-3 mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                      <label class="form-check-label" for="inlineCheckbox2">Gestionar solicitudes</label>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-3 mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                      <label class="form-check-label" for="inlineCheckbox3">Crear perfiles admin</label>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-3 mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option3">
+                      <label class="form-check-label" for="inlineCheckbox4">Ver reportería</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 col-md-3 mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option1">
+                      <label class="form-check-label" for="inlineCheckbox5">Crear y editar categorías</label>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-3 mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option2">
+                      <label class="form-check-label" for="inlineCheckbox6">Acceso a reportería</label>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-3 mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="option3">
+                      <label class="form-check-label" for="inlineCheckbox7">Crear usuarios sin SAP</label>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <div class="box-button">
+                <button class="button-add-profile" (click)="openDialog()" [disabled]="miFormulario.invalid">Guardar</button>
+              </div>
+            </form>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

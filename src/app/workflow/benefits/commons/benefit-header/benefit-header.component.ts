@@ -23,6 +23,7 @@ export class BenefitHeaderComponent implements OnInit {
   public link = '';
   public longDescription = '';
   public image = '';
+  public icon = '';
 
   @HostListener('window:scroll', ['$event'])
   onscroll() {
@@ -53,23 +54,28 @@ export class BenefitHeaderComponent implements OnInit {
     );
 
     this.router.queryParams.subscribe((params: any) => {
+      console.log(antiques);
       const benefit = this.getBenefit(params);
       if (benefit) {
-        console.log(benefit);
         this.title = benefit.title;
         this.description = benefit.description;
         this.longDescription = benefit.longDescription;
+
         this.category = categories.find(
           (c: any) => c.id === benefit.categories[0],
         ).description;
+
         this.antiquity = antiques.find(
           (a: any) => a.id === benefit.antiques[0],
         ).description;
+
         this.plan = plans.find((p: any) => p.id === benefit.plans[0]).titleplan;
         this.link = benefit.link;
         this.image = benefit.image;
-        //this.beneficiaryType = beneficiaryTypes.length === 4 ? "Todos" : beneficiaryTypes.find((p: any) => p.id === benefit.beneficiaryTypes[0]).description;
-        console.log(benefit.beneficiaryTypes.length);
+        this.icon = categories.find(
+          (c: any) => c.id === benefit.categories[0],
+        ).icon;
+
         if (benefit.beneficiaryTypes.length === beneficiaryTypes.length) {
           this.beneficiaryType = 'Todos';
         } else {

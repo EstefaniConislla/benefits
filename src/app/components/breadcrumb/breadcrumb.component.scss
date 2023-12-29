@@ -1,4 +1,6 @@
+@import "src/scss/_variables.scss";
+
 p {
-  color: #6f798f;
+  color: $copec-dark-gray;
   margin: 1em;
 }

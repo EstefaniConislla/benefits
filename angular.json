@@ -28,6 +28,30 @@
             "scripts": []
           },
           "configurations": {
+            "staging": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
+            },
+            "dev-aws-cloudfront": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.ts"
+                }
+              ]
+            },
+            "stg": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.staging.ts"
+                }
+              ]
+            },
             "production": {
               "budgets": [
                 {
@@ -60,11 +84,14 @@
             "production": {
               "browserTarget": "ng-beneflex:build:production"
             },
-            "development": {
-              "browserTarget": "ng-beneflex:build:development"
+            "staging": {
+              "browserTarget": "ng-beneflex:build:staging"
+            },
+            "dev-aws-cloudfront": {
+              "browserTarget": "ng-beneflex:build:dev-aws-cloudfront"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "dev-aws-cloudfront"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -93,9 +120,7 @@
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ],
+    "schematicCollections": ["@angular-eslint/schematics"],
     "analytics": false
   }
 }

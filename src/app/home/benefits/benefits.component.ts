@@ -90,7 +90,7 @@ export class BenefitsComponent implements OnInit {
     this.benefits = JSON.parse(
       this.commonService.getItemLocalStorage('benefits') ?? '[]',
     );
-    if (this.searchTerm.length >= 4) {
+    if (this.searchTerm.length >= 3) {
       this.paginatedCards = this.benefits.filter((benefit) =>
         benefit.title.toLowerCase().includes(this.searchTerm.toLowerCase()),
       );
